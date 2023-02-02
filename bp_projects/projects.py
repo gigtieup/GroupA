@@ -33,6 +33,6 @@ def rec():
 def gamee():
     return render_template("gamee.html")
 
-@app_projects.route('/StockInformation/')
-def StockInformation():
-    return render_template("StockInformation.html")
+@app_projects.route('/StockQuiz/')
+def StockQuiz():
+    return render_template("StockQuiz.html")
