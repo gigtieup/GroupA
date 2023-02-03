@@ -11,7 +11,7 @@ c = conn.cursor()
 #         password text
 #         )""")
 
-c.execute("""INSERT INTO user VALUES ('Antony', 'Yu', 'antony@gmail.com', '1234')""")
+c.execute("INSERT INTO user VALUES('Antony', 'Yu', 'antony@gmail.com', '1234')")
 
 print("committed")
 
