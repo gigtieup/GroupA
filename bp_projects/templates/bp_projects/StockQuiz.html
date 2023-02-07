@@ -130,34 +130,423 @@
     <input type="submit" value="Submit">
   </form>
   
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</titles>
-</head>
-<body>
-  <div class="container">
-    <div id="question-container" class="hide">
-      <div id="answer-buttons" class="btn-grid">
-        <button class="btn">Answer 1</button>
-        <button class="btn">Answer 2</button>
-        <button class="btn">Answer 3</buttons>
-        <button class="btn">Answer 4</buttons>
-        </div>
+  <head>
+    <html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</titles>
+    </head>
+    <body>
+    <div class="container">
+      <div id="question-container" class="hide">
+        <div id="answer-buttons" class="btn-grid">
+          <button class="btn">Answer 1</button>
+          <button class="btn">Answer 2</button>
+          <button class="btn">Answer 3</button>
+          <button class="btn">Answer 4</button>
+          </div>
       </div>
-    <div class="controls">
+    <div class="control">
       <button id="start-btn" class="start-btn btn">Start</button>
       <button ids="next-btn" class="next-btn btn hide"> Next</button>
     </div>
   <div class="score">
     <span id="right-answers"></span>
       </div>
-    <script src="StockPrefQuizBack.html"></script>
+
 </body>
 
 
 
 
+
+
+<body onload="NextQuestion(0)">
+  <main>
+      <!-- creating a modal for when quiz ends -->
+      <div class="modal-container" id="score-modal">
+
+          <div class="modal-content-container">
+
+              <h1>Congratulations, Quiz Completed.</h1>
+
+              <div class="grade-details">
+                  <p>Attempts : 10</p>
+                  <p>Wrong Answers : <span id="wrong-answers"></span></p>
+                  <p>Right Answers : <span id="right-answers"></span></p>
+                  <p>Grade : <span id="grade-percentage"></span>%</p>
+                  <p ><span id="remarks"></span></p>
+              </div>
+
+              <div class="modal-button-container">
+                  <button onclick="closeScoreModal()">Continue</button>
+              </div>
+
+          </div>
+      </div>
+<!-- end of modal of quiz details-->
+
+      <div class="game-quiz-container">
+
+          <div class="game-details-container">
+              <h1>Score : <span id="player-score"></span> / 10</h1>
+              <h1> Question : <span id="question-number"></span> / 10</h1>
+          </div>
+
+          <div class="game-question-container">
+              <h1 id="display-question"></h1>
+          </div>
+
+          <div class="game-options-container">
+
+             <div class="modal-container" id="option-modal">
+
+                  <div class="modal-content-container">
+                       <h1>Please Pick An Option</h1>
+
+                       <div class="modal-button-container">
+                          <button onclick="closeOptionModal()">Continue</button>
+                      </div>
+
+                  </div>
+
+             </div>
+
+              <span>
+                  <input type="radio" id="option-one" name="option" class="radio" value="optionA" />
+                  <label for="option-one" class="option" id="option-one-label"></label>
+              </span>
+
+
+              <span>
+                  <input type="radio" id="option-two" name="option" class="radio" value="optionB" />
+                  <label for="option-two" class="option" id="option-two-label"></label>
+              </span>
+
+
+              <span>
+                  <input type="radio" id="option-three" name="option" class="radio" value="optionC" />
+                  <label for="option-three" class="option" id="option-three-label"></label>
+              </span>
+
+
+              <span>
+                  <input type="radio" id="option-four" name="option" class="radio" value="optionD" />
+                  <label for="option-four" class="option" id="option-four-label"></label>
+              </span>
+
+
+          </div>
+
+          <div class="next-button-container">
+              <button onclick="handleNextQuestion()">Next Question</button>
+          </div>
+
+      </div>
+  </main>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  const startButton = document.getElementById('start-btn' )
+  const nextButton = document.getElementById('next-btn' )
+  
+  const questionContainerElement = document.getElementById (' question-database')
+  const questionElement = document.getElementById (' question')
+  const answerButtonsElement=document.getElementById('answer-buttons')
+  
+  
+  
+  let quizResult =0;
+  
+  
+  
+  
+  
+  
+  const questions =[
+      {
+      question: 'What is your preferred risk to reward ratio',
+      answer :[
+          {text: 'High'},
+          {text: 'Low'}
+          ]
+      },
+      {
+      question: 'Do you prefer short or long term trades?',
+      answer :[
+          {text: 'Long'},
+          {text: 'Short'}
+          ]
+      },
+      {
+      question: 'Preferences for what type of companies?',
+      answer :[
+          {text: 'Environmentally friendly'},
+          {text: 'No preference'}
+              ]
+      },
+      {
+      question: 'Preferences for what type of companies?',
+      answer :[
+          {text: 'Environmentally friendly'},
+          {text: 'No preference'}
+          ]
+       }
+      
+</script>
+  
+]
+<script>
+  
+  
+  const question = [
+      {
+          question: "What are the up and downs on the stock chart called?",
+          optionA: "Skewing",
+          optionB: "Fluctuation",
+          optionC: "Candles",
+          optionD: "Increase and Decrease",
+          correctOption: "optionC"
+      },
+  
+      {
+          question: "What is a company?",
+          optionA: "A business or association",
+          optionB: "Group of friends",
+          optionC: "Collaborates",
+          optionD: "A class",
+          correctOption: "optionA"
+      },
+  
+      {
+          question: "What is a entrepreneur?",
+          optionA: "Family member",
+          optionB: "A friendly Person",
+          optionC: "A person who organizes and operates a business",
+          optionD: "George Washington",
+          correctOption: "optionC"
+      },
+      {
+          question: "What is a public corporation?",
+          optionA: "Company rhar is set up in public",
+          optionB: "Food stand",
+          optionC: "School",
+          optionD: "Stock of a public company that can be owned by individuals and investors",
+          correctOption: "optionD"
+      },
+      {
+          question: "What is a public corporation?",
+          optionA: "Company rhar is set up in public",
+          optionB: "Food stand",
+          optionC: "School",
+          optionD: "Stock of a public company that can be owned by individuals and investors",
+          correctOption: "optionD"
+      }
+  ]
+      let questionNumber = 1 
+  let playerScore = 0 
+  let wrongAttempt = 0 
+  let indexNumber = 0 
+      
+  </script>
+  
+  
+  
+
+  <script>
+
+
+  function showResults(questions, quizContainer, resultsContainer){
+	
+
+	var answerContainers = quizContainer.querySelectorAll('.answers');
+	
+
+	var userAnswer = 'input';
+	var numCorrect = 0;
+	
+
+	for(var i=0; i<questions.length; i++){
+
+
+		userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
+		
+
+		if(userAnswer===questions[i].correctAnswer){
+
+			numCorrect++;
+			
+
+			answerContainers[i].style.color = 'lightgreen';
+		}
+
+		else{
+
+			answerContainers[i].style.color = 'red';
+		}
+	}
+
+
+	resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+},
+
+
+  </script>
+  
+  <script>,
+  function showResults(questions, quizContainer, resultsContainer){
+	
+
+    var answerContainers = quizContainer.querySelectorAll('.answers');
+    
+
+    var userAnswer = '';
+    var numCorrect = 0;
+    
+
+    for(var i=0; i<questions.length; i++){
+  
+
+      userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
+      
+
+      if(userAnswer===questions[i].correctAnswer){
+
+        numCorrect++;
+        
+
+        answerContainers[i].style.color = 'lightgreen';
+      }
+
+      else{
+
+        answerContainers[i].style.color = 'red';
+      }
+    }
+  
+
+    resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+  }
+ </script>, 
+  
+  
+  
+
+
+
+
+
+  <script>,
+  function NextQuestion(index) {
+    handleQuestions()
+    document.getElementById("question-number").innerHTML = questionNumber
+    document.getElementById("player-score").innerHTML = playerScore
+    document.getElementById("display-question").innerHTML = currentQuestion.question;
+
+
+}</script>
+  
+  
+  <style>*{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+  
+  html, body{
+      height: 100%;
+  }
+  
+  
+  body{
+      font-family: 'Montserrat', serif;
+  
+  }
+  
+  main{
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: black;
+      background: url('../assets/background_image.jpg');
+      background-color : black;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+  }
+  
+  .game-quiz-container{
+      width: 40rem;
+      height: 30rem;
+      background-color: lightgray;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      border-radius: 30px;
+  }
+  
+  .game-details-container{
+      width: 80%;
+      height: 4rem;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+  }
+  
+  .game-details-container h1{
+      font-size: 1.2rem;
+  }
+  
+  .game-question-container{
+      width: 80%;
+      height: 8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid darkgray;
+      border-radius: 25px;
+  }
+  
+  .game-question-container h1{
+      font-size: 1.1rem;
+      text-align: center;
+      padding: 3px;
+  }
+  
+  .game-options-container{
+      width: 80%;
+      height: 12rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-around;
+  }
+  
+  .game-options-container span{
+      width: 45%;
+      height: 3rem;
+      border: 2px solid darkgray;
+      border-radius: 20px;
+      overflow: hidden;
+  }
+ 
+  
+  
+  
+</style>
