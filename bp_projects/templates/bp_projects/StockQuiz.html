@@ -303,49 +303,51 @@
           {text: 'Environmentally friendly'},
           {text: 'No preference'}
           ]
-       }
+       },
       
 </script>
   
 ]
+
+
 <script>
   
 
-  const question = [
-      {
-          question: "What are the up and downs on the stock chart called?",
-          optionA: "Skewing",
-          optionB: "Fluctuation",
-          optionC: "Candles",
-          optionD: "Increase and Decrease",
-          correctOption: "optionC"
-      },
+const question = [
+  {
+  question: "What are the up and downs on the stock chart called?",
+  optionA: "Skewing",
+  optionB: "Fluctuation",
+  optionC: "Candles",
+  optionD: "Increase and Decrease",
+  correctOption: "optionC"
+  },
   
-      {
-          question: "What is a company?",
-          optionA: "A business or association",
-          optionB: "Group of friends",
-          optionC: "Collaborates",
-          optionD: "A class",
-          correctOption: "optionA"
-      },
+  {
+  question: "What is a company?",
+  optionA: "A business or association",
+  optionB: "Group of friends",
+  optionC: "Collaborates",
+  optionD: "A class",
+  correctOption: "optionA"
+  },
   
-      {
-          question: "What is a entrepreneur?",
-          optionA: "Family member",
-          optionB: "A friendly Person",
-          optionC: "A person who organizes and operates a business",
-          optionD: "George Washington",
-          correctOption: "optionC"
-      },
-      {
-          question: "What is a public corporation?",
-          optionA: "Company rhar is set up in public",
-          optionB: "Food stand",
-          optionC: "School",
-          optionD: "Stock of a public company that can be owned by individuals and investors",
-          correctOption: "optionD"
-      },
+  {
+  question: "What is a entrepreneur?",
+  optionA: "Family member",
+  optionB: "A friendly Person",
+  optionC: "A person who organizes and operates a business",
+  optionD: "George Washington",
+  correctOption: "optionC"
+  },
+  {
+  question: "What is a public corporation?",
+  optionA: "Company rhar is set up in public",
+  optionB: "Food stand",
+  optionC: "School",
+  optionD: "Stock of a public company that can be owned by individuals and investors",
+  correctOption: "optionD"
+  },
       {
           question: "What is a common stock?",
           optionA: "A investing company",
@@ -464,12 +466,12 @@
 
 
 	resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
-},
+}
 
 
   </script>
   
-  <script>,
+  <script>
   function showResults(questions, quizContainer, resultsContainer){
 	
 
@@ -512,7 +514,7 @@
 
 
 
-  <script>,
+  <script>
   function NextQuestion(index) {
     handleQuestions()
     document.getElementById("question-number").innerHTML = questionNumber
