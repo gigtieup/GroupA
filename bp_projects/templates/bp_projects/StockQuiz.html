@@ -63,7 +63,7 @@
  <form>
     <fieldset id="question1" style="color:white;">
       <legend>Question 1</legend>
-      <label for="question1" style="color:white;">What is your prefered risk to reward ratio?</label><br>
+      <label for="question1" style="color:white;">What is your preferred risk to reward ratio?</label><br>
       <input type="radio" name="question1" value="true" required> High<br>
       <input type="radio" name="question1" value="false"> Low
       <br>
@@ -74,40 +74,40 @@
     
     <fieldset id="question2" style="display:none; color:white;">
       <legend>Question 2</legend>
-      <label for="question1" style="color:white;">Do you prefer short or long term trades?</label><br>
+      <label for="question2" style="color:white;">Do you prefer short or long term trades?</label><br>
       <input type="radio" name="question2" value="true" required> Short<br>
       <input type="radio" name="question2" value="false"> Long
       <br>
       <button type="button" onclick="showQuestion3()">Continue</button>
     </fieldset>
-    <br><br>
+    <br>
     
     
     <fieldset id="question3" style="display:none; color:white;">
       <legend>Question 3</legend>
-      <label for="question1" style="color:white;">Preferences for what type of companies?</label><br>
+      <label for="question3" style="color:white;">Preferences for what type of companies?</label><br>
       <input type="radio" name="question3" value="true" required> Environmentally friendly<br>
       <input type="radio" name="question3" value="false"> No preference
       <br>
       <button type="button" onclick="showQuestion4()">Continue</button>
     </fieldset>
-    <br><br>
+    <br>
     
     
     <fieldset id="question4" style="display:none; color:white;">
       <legend>Question 4</legend>
-      <label for="question1" style="color:white;">What type of stocks do you prefer? Health, Oil & Gas, Tech, Penny, etc.</label><br>
+      <label for="question4" style="color:white;">What type of stocks do you prefer? Health, Oil & Gas, Tech, Penny, etc.</label><br>
       <input type="radio" name="question4" value="true" required> True<br>
       <input type="radio" name="question4" value="false"> False
       <br>
       <button type="button" onclick="showQuestion5()">Continue</button>
     </fieldset>
-    <br><br>
+    <br>
     
     
     <fieldset id="question5" style="display:none; color:white;">
       <legend>Question 5</legend>
-      <label for="question1" style="color:white;">What type of stocks do you prefer? Health, Oil & Gas, Tech, Penny, etc.</label><br>
+      <label for="question5" style="color:white;">What type of stocks do you prefer? Health, Oil & Gas, Tech, Penny, etc.</label><br>
       <input type="radio" name="question5" value="true" required> True<br>
       <input type="radio" name="question5" value="false"> False
     </fieldset>
@@ -130,3 +130,34 @@
     <input type="submit" value="Submit">
   </form>
   
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</titles>
+</head>
+<body>
+  <div class="container">
+    <div id="question-container" class="hide">
+      <div id="answer-buttons" class="btn-grid">
+        <button class="btn">Answer 1</button>
+        <button class="btn">Answer 2</button>
+        <button class="btn">Answer 3</buttons>
+        <button class="btn">Answer 4</buttons>
+        </div>
+      </div>
+    <div class="controls">
+      <button id="start-btn" class="start-btn btn">Start</button>
+      <button ids="next-btn" class="next-btn btn hide"> Next</button>
+    </div>
+  <div class="score">
+    <span id="right-answers"></span>
+      </div>
+    <script src="StockPrefQuizBack.html"></script>
+</body>
+
+
+
+
