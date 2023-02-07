@@ -163,7 +163,7 @@
 
 <body onload="NextQuestion(0)">
   <main>
-      <!-- creating a modal for when quiz ends -->
+
       <div class="modal-container" id="score-modal">
 
           <div class="modal-content-container">
@@ -184,7 +184,7 @@
 
           </div>
       </div>
-<!-- end of modal of quiz details-->
+
 
       <div class="game-quiz-container">
 
@@ -363,12 +363,60 @@
           correctOption: "optionA"
       },
       {
-          question: "When do stock prices go up and down?",
-          optionA: "When the performance of the company increases or decreases",
-          optionB: "Randomly made numbers",
-          optionC: "The day of the week",
-          optionD: "I have no idea",
+          question: "What are blue chip stocks?",
+          optionA: "The worst performing companies",
+          optionB: "Company stocks that are stable (Not increasing or decreasing)",
+          optionC: "Blue chips",
+          optionD: "Stocks that are from the well-established companies, usually market leaders",
+          correctOption: "optionD"
+      },
+      {
+          question: "Who should be interested in blue chip stocks?",
+          optionA: "People that want to lose money",
+          optionB: "People that want a stable and low risk stock",
+          optionC: "People that want stocks that have big chance for increasing or decreasing",
+          optionD: "People that like to invests in risks",
+          correctOption: "optionB"
+      },
+      {
+          question: "What is a growth stock?",
+          optionA: "Stock that grew before but has started to flatline",
+          optionB: "A company that is earning more than the average across the entire market",
+          optionC: "Person that is skilled in the stock market",
+          optionD: "A person that day trades",
+          correctOption: "optionB"
+      },
+      {
+          question: "Who should be interested in growth stocks?",
+          optionA: "People that are not experienced in the stock market",
+          optionB: "People that want to invest in companies with low risk",
+          optionC: "Person that want to be risky in the stock market",
+          optionD: "People that want a stable stock",
+          correctOption: "optionC"
+      },
+      {
+          question: "What is income stock?",
+          optionA: "A stock that is given out for free, similar to a sample",
+          optionB: "A stock that makes money over time",
+          optionC: "The money that employees make on a regular basis",
+          optionD: "An equity security that pays regularly, often steadily increasing dividends",
+          correctOption: "optionD"
+      },
+      {
+          question: "Who would be interested in income stocks?",
+          optionA: "People that want a low risk stock",
+          optionB: "People that want a high risk stock",
+          optionC: "People that have no interest in the stock market",
+          optionD: "People that don't want to make money",
           correctOption: "optionA"
+      },
+      {
+          question: "What is a defensive stock?",
+          optionA: "People that want a low risk stock",
+          optionB: "A stock that provides consistent dividends",
+          optionC: "People that have no interest in the stock market",
+          optionD: "People that don't want to make money",
+          correctOption: "optionB"
       }
   ]
       let questionNumber = 1 
@@ -499,7 +547,6 @@
       justify-content: center;
       align-items: center;
       background-color: black;
-      background: url('../assets/background_image.jpg');
       background-color : black;
       background-repeat: no-repeat;
       background-size: cover;
