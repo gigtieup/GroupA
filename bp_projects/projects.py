@@ -36,3 +36,7 @@ def gamee():
 @app_projects.route('/StockQuiz/')
 def StockQuiz():
     return render_template("StockQuiz.html")
+
+@app_projects.route('/CreateAccount/')
+def CreateAccount():
+    return render_template("CreateAccount.html")
