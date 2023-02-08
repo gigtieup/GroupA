@@ -1,12 +1,8 @@
 
-
-
 <body style="background-color:rgb(36, 35, 35);"></body>
 
-<h1 style="color:rgb(223, 205, 205); font-family: gill sans, sans-serif;">Information about various stocks</h1>
 
 <head>
-    <title>Information About Various Stocks</title>
     <style>
       .text-container {
         margin-bottom: 10px;
@@ -27,51 +23,102 @@
       }
     </script>
 </head>
-  <body>
-    <div class="text-container">
-      <button onclick="toggleText('text1'); color:rgb(223, 205, 205) ">Tesla</button>
-      <div id="text1" style="display:none; color:rgb(223, 205, 205);">Tesla Inc is an automotive and energy company. It designs, develops, manufactures, sells, and leases electric vehicles and energy generation and storage systems. The company produces and sells the Model Y, Model 3, Model X, Model S, Cybertruck, Tesla Semi, and Tesla Roadster vehicles. Tesla also installs and maintains energy systems and sells solar electricity; and offers end-to-end clean energy products, including generation, storage, and consumption. It markets and sells vehicles to consumers through a network of company owned stores and galleries. The company has manufacturing facilities in the US, Germany and China and has operations across Asia Pacific and Europe. Tesla is headquartered in Austin, Texas, the US. They also excel in electrifying your home. They create solar panels so that the future can run on sustainable energy. </div>
-    </div>
-    <div class="text-container">
-      <button onclick="toggleText('text2')">Amazon</button>
-      <div id="text2" style="display:none; color:rgb(223, 205, 205);">Originally started as an online book selling company, Amazon has morphed into an internet-based business enterprise that is largely focused on providing e-commerce, cloud computing, digital streaming and artificial intelligence services. Following an Amazon-to-buyer sales approach, the company offers a monumental product range and inventory, enabling consumers to buy just about anything, including clothing, beauty supplies, gourmet food, jewelry, books, movies, electronics, pet supplies, furniture, toys, garden supplies and household goods. Headquartered in Seattle, Amazon has individual websites, software development centers, customer service centers, data centers and fulfillment centers around the world.</div>
-    </div>
-    <div class="text-container">
-      <button onclick="toggleText('text3')">Microsoft</button>
-      <div id="text3" style="display:none; color:rgb(223, 205, 205);">Text for button 3</div>
-    </div>
-    <div class="text-container">
-      <button onclick="toggleText('text4')">Google</button>
-      <div id="text4" style="display:none; color:rgb(223, 205, 205);">Text for button 4</div>
-    </div>
-    <div class="text-container">
-        <button onclick="toggleText('text5')">Apple</button>
-        <div id="text5" style="display:none; color:rgb(223, 205, 205);">Text for button 5</div>
-      </div>
-      <div class="text-container">
-        <button onclick="toggleText('text6')">Philips</button>
-        <div id="text6" style="display:none; color:rgb(223, 205, 205);">Text for button 6</div>
-      </div>
-  </body>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  height: 258px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+</head>
+<body>
+
+<div class="row">
+  <div class="column" style="background-color:#aaa;">
+    <h2>Step 1: Understanding the stock market</h2>
+    <p>The stock market is a platform where individuals and institutions can buy and sell stocks of publicly traded companies. The prices of these stocks are determined by supply and demand and can fluctuate greatly in short periods of time.</p>
+  </div>
+  <div class="column" style="background-color:#bbb;">
+    <h2>Step 2: Registering with a Brokerage Firm</h2>
+    <p>To participate in the stock market, you need to register with a brokerage firm. This can be done online and involves completing a registration form and providing personal and financial information. Once registered, you will be given access to the broker's trading platform.</p>
+  </div>
+  <div class="column" style="background-color:#ccc;">
+    <h2>Step 3: Choosing Stocks</h2>
+    <p>Once you have registered, you will need to choose the stocks you want to invest in. Research is important here, as you will want to choose companies that have a good track record and are likely to grow in the future. You can also use a variety of financial tools and resources to help you make informed decisions.</p>
+  </div>
+</div>
+<div class="row">
+  <div class="column" style="background-color:#ccc;">
+    <h2>Step 4: Placing an Order</h2>
+    <p>Once you have chosen the stocks you want to buy, you will need to place an order. This is done through the broker's trading platform and can be done in real-time. You will need to specify the number of shares you want to purchase and the price you are willing to pay.</p>
+  </div>
+  <div class="column" style="background-color:#aaa;">
+    <h2>Step 5: Monitoring Your Investment</h2>
+    <p>Once you have placed your order, you will need to monitor your investment. This involves keeping an eye on the stock prices and market conditions and making adjustments to your portfolio as necessary. You can also use financial tools and resources to help you make informed decisions about when to buy or sell.</p>
+  </div>
+  <div class="column" style="background-color:#bbb;">
+    <h2>Step 6: Selling Stocks</h2>
+    <p>When you are ready to sell your stocks, you will need to place an order to sell through the broker's trading platform. The price you receive for your stocks will be determined by supply and demand and can fluctuate greatly in short periods of time.</p>
+  </div>
+</div>
+
+</body>
+</html>
+
+<body>
 
 
+<style>
+  .btn {
+    border: 6px solid rgb(36, 35, 35);;
+    background-color: rgb(92, 92, 92);
+    color: black;
+    padding: 4px 28px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+/* Gray */
+.default {
+  border-color: rgb(36, 35, 35);;
+  color: rgb(255, 255, 255);
+}
 
+.default:hover {
+  background: #747474;
+}
+</style>
 
 
  <h1 style="color:rgb(223, 205, 205); font-family: gill sans, sans-serif;">Stock Recommendation Quiz</h1> 
  
  <form>
-    <fieldset id="question1" style="color:white;">
-      <legend>Question 1</legend>
-      <label for="question1" style="color:white;">What is your preferred risk to reward ratio?</label><br>
-      <input type="radio" name="question1" value="true" required> High<br>
-      <input type="radio" name="question1" value="false"> Low
-      <br>
-      <button type="button" onclick="showQuestion2()">Continue</button>
-    </fieldset>
-    <br>
+  <fieldset id="question1" style="display:none; color:white;">
+    <legend>Question 1</legend>
+    <label for="question1" style="color:white;">What type of stocks do you prefer? Health, Oil & Gas, Tech, Penny, etc.</label><br>
+    <input type="radio" name="question5" value="true" required> True<br>
+    <input type="radio" name="question5" value="false"> False
+    <button type="button" onclick="showQuestion2()">Continue</button>
+  </fieldset>
+  <br>
 
-    
+
     <fieldset id="question2" style="display:none; color:white;">
       <legend>Question 2</legend>
       <label for="question2" style="color:white;">Do you prefer short or long term trades?</label><br>
@@ -103,14 +150,22 @@
       <button type="button" onclick="showQuestion5()">Continue</button>
     </fieldset>
     <br>
-    
-    
-    <fieldset id="question5" style="display:none; color:white;">
-      <legend>Question 5</legend>
-      <label for="question5" style="color:white;">What type of stocks do you prefer? Health, Oil & Gas, Tech, Penny, etc.</label><br>
-      <input type="radio" name="question5" value="true" required> True<br>
-      <input type="radio" name="question5" value="false"> False
+
+
+    <fieldset id="question5" style="color:white;">
+      <legend>Risk Tolerance</legend>
+      <select id="risk_tolerance">
+        <option value="Very Conservative">Very Conservative</option>
+        <option value="Conservative">Conservative</option>
+        <option value="Moderate">Moderate</option>
+        <option value="Aggressive">Aggressive</option>
+      </select>
+      <br>
+      <button class="btn default" onclick="getRecommendation()">Get Recommendation</button>
     </fieldset>
+    <br>
+    <h4 style="color:rgb(223, 205, 205); font-family: gill sans, sans-serif;" id="recommendation"></h4>
+    
     
     <script>
       function showQuestion2() {
@@ -129,34 +184,34 @@
     <br><br>
     <input type="submit" value="Submit">
   </form>
+  <script>
+    function getRecommendation() {
+      var risk_tolerance = {
+        "Very Conservative": [0, 33],
+        "Conservative": [34, 66],
+        "Moderate": [67, 100],
+        "Aggressive": [101, 150]
+      };
   
+      var risk_level = document.getElementById("risk_tolerance").value;
+      var recommendation = "";
+  
+      var risk_range = risk_tolerance[risk_level];
+      if (risk_range[0] <= 33) {
+        recommendation = "Based on your risk tolerance, we recommend investing in bonds or index funds.";
+      } else if (risk_range[0] <= 67) {
+        recommendation = "Based on your risk tolerance, we recommend investing in a mix of stocks and bonds.";
+      } else {
+        recommendation = "Based on your risk tolerance, we recommend investing in growth stocks.";
+      }
+  
+      document.getElementById("recommendation").innerHTML = recommendation;
+    }
+  </script>
+  </head>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</titles>
-</head>
-<body>
-  <div class="container">
-    <div id="question-container" class="hide">
-      <div id="answer-buttons" class="btn-grid">
-        <button class="btn">Answer 1</button>
-        <button class="btn">Answer 2</button>
-        <button class="btn">Answer 3</buttons>
-        <button class="btn">Answer 4</buttons>
-        </div>
-      </div>
-    <div class="controls">
-      <button id="start-btn" class="start-btn btn">Start</button>
-      <button ids="next-btn" class="next-btn btn hide"> Next</button>
-    </div>
-  <div class="score">
-    <span id="right-answers"></span>
-      </div>
-    <script src="StockPrefQuizBack.html"></script>
-</body>
+
+
 
 
 
