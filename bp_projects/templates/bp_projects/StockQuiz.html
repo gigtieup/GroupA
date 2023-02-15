@@ -330,39 +330,9 @@
   
   
   
-  const questions =[
-      {
-      question: 'What is your preferred risk to reward ratio',
-      answer :[
-          {text: 'High'},
-          {text: 'Low'}
-          ]
-      },
-      {
-      question: 'Do you prefer short or long term trades?',
-      answer :[
-          {text: 'Long'},
-          {text: 'Short'}
-          ]
-      },
-      {
-      question: 'Preferences for what type of companies?',
-      answer :[
-          {text: 'Environmentally friendly'},
-          {text: 'No preference'}
-              ]
-      },
-      {
-      question: 'Preferences for what type of companies?',
-      answer :[
-          {text: 'Environmentally friendly'},
-          {text: 'No preference'}
-          ]
-       },
-      
 </script>
   
-]
+
 
 
 <script>
@@ -472,7 +442,7 @@ const question = [
   optionA: "People that want a low risk stock",
   optionB: "A stock that provides consistent dividends",
   optionC: "People that have no interest in the stock market",
-   optionD: "People that don't want to make money",
+  optionD: "People that don't want to make money",
    correctOption: "optionB"
   }
   ]
@@ -482,7 +452,7 @@ const question = [
 
 function handleQuestions() { 
 
-    while (shuffledQuestions.length <= 9) {
+    while (shuffledQuestions.length <= 13) {
         const random = questions[Math.floor(Math.random() * questions.length)]
         if (!shuffledQuestions.includes(random)) {
             shuffledQuestions.push(random)
@@ -494,8 +464,7 @@ function handleQuestions() {
   
       let questionNumber = 1 
   let playerScore = 0 
-  let wrongAttempt = 0 
-  let indexNumber = 0 
+
       
   </script>
   
@@ -505,7 +474,7 @@ function handleQuestions() {
   <script>
 
 
-  function showResults(questions, quizContainer, resultsContainer){
+function showResults(questions, quizContainer, resultsContainer){
 	
 
 	var answerContainers = quizContainer.querySelectorAll('.answers');
@@ -540,68 +509,29 @@ function handleQuestions() {
 }
 
 
-  </script>
-  
-  <script>
-  function showResults(questions, quizContainer, resultsContainer){
-	
-
-    var answerContainers = quizContainer.querySelectorAll('.answers');
-    
-
-    var userAnswer = '';
-    var numCorrect = 0;
-    
-
-    for(var i=0; i<questions.length; i++){
-  
-
-      userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
-      
-
-      if(userAnswer===questions[i].correctAnswer){
-
-        numCorrect++;
-        
-
-        answerContainers[i].style.color = 'lightgreen';
-      }
-
-      else{
-
-        answerContainers[i].style.color = 'red';
-      }
-    }
-  
-
-    resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
-  }
- </script>, 
-  
-  
   
 
 
 
 
 
-  <script>
-  function NextQuestion(index) {
-    document.getElementById("question-number").innerHTML = questionNumber
-    document.getElementById("player-score").innerHTML = playerScore
-    document.getElementById("display-question").innerHTML = currentQuestion.question;
-    document.getElementById("option-one-label").innerHTML = currentQuestion.optionA;
-    document.getElementById("option-two-label").innerHTML = currentQuestion.optionB;
-    document.getElementById("option-three-label").innerHTML = currentQuestion.optionC;
-    document.getElementById("option-four-label").innerHTML = currentQuestion.optionD;
 
 
-}
+function NextQuestion(index) {
+  document.getElementById("question-number").innerHTML = questionNumber
+  document.getElementById("player-score").innerHTML = playerScore
+  document.getElementById("display-question").innerHTML = currentQuestion.question;
+  document.getElementById("option-one-label").innerHTML = currentQuestion.optionA;
+  document.getElementById("option-two-label").innerHTML = currentQuestion.optionB;
+  document.getElementById("option-three-label").innerHTML = currentQuestion.optionC;
+  document.getElementById("option-four-label").innerHTML = currentQuestion.optionD;
+
+
+} 
 
 </script>
   
-  
-  <style>*{
+<style>*{
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -692,8 +622,6 @@ function handleQuestions() {
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    transition: transform 0.3s;
     font-weight: 600;
     color: rgb(22, 22, 22);
 }
@@ -750,8 +678,7 @@ input[type=radio]:checked ~ .option {
     flex-direction: column;
     align-items: center;
     justify-content: center; 
-    -webkit-animation: fadeIn 1.2s ease-in-out;
-    animation: fadeIn 1.2s ease-in-out;
+
 }
 
 .modal-content-container{
@@ -871,18 +798,6 @@ input[type=radio]:checked ~ .option {
     }
 }
 
-
-
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity:1 ;}
-  }
-
-  @-webkit-keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
-  }
-  
   
   
 </style>
