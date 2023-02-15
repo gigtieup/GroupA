@@ -2,7 +2,7 @@ import json
 from flask import Blueprint, request, jsonify
 from flask_restful import Api, Resource # used for REST API building
 from datetime import datetime
-
+import sqlite3
 from users import User
 
 user_api = Blueprint('user_api', __name__,
@@ -86,3 +86,5 @@ class UserAPI:
     api.add_resource(_Create, '/create')
     api.add_resource(_Read, '/')
     api.add_resource(_Security, '/authenticate')
+
+
