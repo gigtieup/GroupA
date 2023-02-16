@@ -20,9 +20,9 @@ def confirm():
         total_stock = share_price * shares
         total += total_stock
         stocks.append({
-            'name': stock_name
-            'shares': shares
-            'share_price': share_price
+            'name': stock_name,
+            'shares': shares,
+            'share_price': share_price,
             'total': total_stock
             })
 
@@ -36,7 +36,7 @@ def confirm():
     c.execute("SELECT * FROM stock WHERE total > 0")
     stock = c.fetchall()
 
-    return render_template('/bp_projects/templates/gamee.html')
+    return render_template('/bp_projects/templates/rec.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
