@@ -1,6 +1,6 @@
 from flask_restful import Resource
 from flask import request, jsonify
-from users import User
+from user_folder.users import User
 
 
 class _Security(Resource):
