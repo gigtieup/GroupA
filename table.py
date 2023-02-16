@@ -1,6 +1,6 @@
 import sqlite3
 
-conn = sqlite3.connect('stock.db')
+conn = sqlite3.connect('GroupA/stock.db')
 c = conn.cursor()
 
 c.execute("""CREATE TABLE stock (
@@ -9,6 +9,7 @@ c.execute("""CREATE TABLE stock (
     share_price INTEGER,
     total INTEGER
 )""")
+
 
 conn.commit()
 conn.close()
