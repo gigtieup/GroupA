@@ -16,7 +16,7 @@ def confirm():
     for stock_name in request.form.getlist('stock_name'):
         shares = int(request.form[stock_name])
         response = request.get("https://api.twelvedata.com/quote?symbol=${tickerSymbol}&apikey=${api}".format(stock_name))
-        share_price = float(response.json()["Global Quote"]["05. price"])
+        share_price = int(share_price)
         total_stock = share_price * shares
         total += total_stock
         stocks.append({
