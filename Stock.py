@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def buy():
-    return render_template('/bp_projects/templates/game.html')
+    return render_template('game.html')
 
 @app.route('/confirm', methods=['POST'])
 def confirm():
@@ -23,12 +23,13 @@ def confirm():
             'name': stock_name,
             'shares': shares,
             'share_price': share_price,
+            'total_share': shares * share_price,
             'total': total_stock
             })
 
-        conn = sqlite3.connect('stock.db')
+        conn = sqlite3.connect('GroupA/stock.db')
         c = conn.cursor()
-        c.execute("INSERT INTO stock (stock_name, shares, share_price, total) VALUES (?, ?, ?, ?)", (stock_name, shares, share_price, total_stock))
+        c.execute("INSERT INTO stock (stock_name, total_share, shares, total) VALUES (?, ?, ?, ?)", (stock_name, shares, share_price, total_stock))
         conn.commit()
 
     conn = sqlite3.connect('stock.db')
@@ -36,7 +37,7 @@ def confirm():
     c.execute("SELECT * FROM stock WHERE total > 0")
     stock = c.fetchall()
 
-    return render_template('/bp_projects/templates/rec.html')
+    return render_template('rec.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

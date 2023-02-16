@@ -129,7 +129,7 @@
     alert(document.getElementById("result").innerHTML = "Just confirming the transaction of $" + result);
   }
 </script>
-
+<form action=”info.php” method=”post”>
 </body>
 <div class="col d-flex justify-content-center">
 
@@ -138,7 +138,7 @@
     <h2><b>Apple Inc </b><small><small><small><small></small>(NASDAQ: AAPL)</small></small></small></small></h2> 
     <h3>141.86 <small><small><small>USD</small></small></small></h3>
     <form action="">
-      <input type="text" id="numInput" placeholder="Number of shares..." name="numInput">
+      <input type="stock_name" id="numInput" placeholder="Number of shares..." name="numInput">
       <style>
         .btn {
           border: 2px solid black;
@@ -189,7 +189,7 @@
     <h2><b>Alphabet Inc Class A </b><small><small><small><small></small>(NASDAQ: GOOGL)</small></small></small></small></h2> 
     <h3>97.52 <small><small><small>USD</small></small></small></h3>
     <form action="">
-      <input type="text" id="numInput1" placeholder="Number of shares..." name="numInput">
+      <input type="stock_name" id="numInput1" placeholder="Number of shares..." name="numInput">
       <style>
         .btn {
           border: 2px solid black;
@@ -246,7 +246,8 @@
     <h2><b>Microsoft Corp </b><small><small><small><small></small>(NASDAQ: MSFT)</small></small></small></small></h2> 
     <h3>248.00 <small><small><small>USD</small></small></small></h3>
     <form action="">
-      <input type="text" id="numInput2" placeholder="Number of shares..." name="numInput">
+      <label for="Microsoft Corp"><b>Microsoft Corp</b></label>
+      <input type="stock_name" id="numInput2" placeholder="Number of shares..." name="numInput">
       <style>
         .btn {
           border: 2px solid black;
@@ -305,7 +306,7 @@
     <h2><b>NuVasive, Inc. </b><small><small><small><small></small>(NASDAQ: NUVA)</small></small></small></small></h2> 
     <h3>44.95 <small><small><small>USD</small></small></small></h3>
     <form action="">
-      <input type="text" id="numInput3" placeholder="Number of shares..." name="numInput">
+      <input type="stock_name" id="numInput3" placeholder="Number of shares..." name="numInput">
       <style>
         .btn {
           border: 2px solid black;
@@ -356,7 +357,7 @@
     <h2><b>Surgalign Holdings Inc </b><small><small><small><small></small>(NASDAQ: SRGA)</small></small></small></small></h2> 
     <h3>2.04 <small><small><small>USD</small></small></small></h3>
     <form action="">
-      <input type="text" id="numInput4" placeholder="Number of shares..." name="numInput">
+      <input type="stock_name" id="numInput4" placeholder="Number of shares..." name="numInput">
       <style>
         .btn {
           border: 2px solid black;
@@ -410,7 +411,7 @@
     <h2><b>Datadog Inc </b><small><small><small><small></small>(NASDAQ: DDOG)</small></small></small></small></h2> 
     <h3>76.00 <small><small><small>USD</small></small></small></h3>
     <form action="">
-      <input type="text" id="numInput5" placeholder="Number of shares..." name="numInput">
+      <input type="stock_name" id="numInput5" placeholder="Number of shares..." name="numInput">
       <style>
         .btn {
           border: 2px solid black;
@@ -450,7 +451,7 @@
     <h2><b>Netflix Inc </b><small><small><small><small></small>(NASDAQ: NFLX)</small></small></small></small></h2> 
     <h3>364.87 <small><small><small>USD</small></small></small></h3>
     <form action="">
-      <input type="text" id="numInput6" placeholder="Number of shares..." name="numInput">
+      <input type="stock_name" id="numInput6" placeholder="Number of shares..." name="numInput">
       <style>
         .btn {
           border: 2px solid black;
@@ -494,7 +495,7 @@
     <h2><b>Ford Motor Company </b><small><small><small><small></small>(NASDAQ: F)</small></small></small></small></h2> 
     <h3>12.92 <small><small><small>USD</small></small></small></h3>
     <form action="">
-      <input type="text" id="numInput7" placeholder="Number of shares..." name="numInput">
+      <input type="stock_name" id="numInput7" placeholder="Number of shares..." name="numInput">
       <style>
         .btn {
           border: 2px solid black;
@@ -542,7 +543,7 @@
     <h2><b>Snap Inc </b><small><small><small><small></small>(NASDAQ: SNAP)</small></small></small></small></h2> 
     <h3>10.19 <small><small><small>USD</small></small></small></h3>
     <form action="">
-      <input type="text" id="numInput8" placeholder="Number of shares..." name="numInput">
+      <input type="stock_name" id="numInput8" placeholder="Number of shares..." name="numInput">
       <style>
         .btn {
           border: 2px solid black;
@@ -586,7 +587,7 @@
     <h2><b>Costco Wholesale Corporation </b><small><small><small><small></small>(NASDAQ: COST)</small></small></small></small></h2> 
     <h3>498.30 <small><small><small>USD</small></small></small></h3>
     <form action="">
-      <input type="text" id="numInput9" placeholder="Number of shares..." name="numInput">
+      <input type="stock_name" id="numInput9" placeholder="Number of shares..." name="numInput">
       <style>
         .btn {
           border: 2px solid black;
@@ -635,7 +636,7 @@
     <h2><b>Shell PLC </b><small><small><small><small></small>(NASDAQ: SHEL)</small></small></small></small></h2> 
     <h3>58.52 <small><small><small>USD</small></small></small></h3>
     <form action="">
-      <input type="text" id="numInput10" placeholder="Number of shares..." name="numInput">
+      <input type="stock_name" id="numInput10" placeholder="Number of shares..." name="numInput">
       <style>
         .btn {
           border: 2px solid black;
@@ -666,7 +667,7 @@
   </div>
 </div>
 
-
+</form>
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
