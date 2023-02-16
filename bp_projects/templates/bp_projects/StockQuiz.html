@@ -31,15 +31,15 @@
   box-sizing: border-box;
 }
 
-/* Create three equal columns that floats next to each other */
+
 .column {
   float: left;
   width: 33.33%;
   padding: 10px;
-  height: 258px; /* Should be removed. Only for demonstration */
+  height: 258px; 
 }
 
-/* Clear floats after the columns */
+
 .row:after {
   content: "";
   display: table;
@@ -93,7 +93,7 @@
     font-size: 16px;
     cursor: pointer;
   }
-/* Gray */
+
 .default {
   border-color: rgb(36, 35, 35);;
   color: rgb(255, 255, 255);
@@ -107,48 +107,10 @@
 
  <h1 style="color:rgb(223, 205, 205); font-family: gill sans, sans-serif;">Stock Recommendation Quiz</h1> 
  
- <form>
-  <fieldset id="question1" style="display:none; color:white;">
-    <legend>Question 1</legend>
-    <label for="question1" style="color:white;">What type of stocks do you prefer? Health, Oil & Gas, Tech, Penny, etc.</label><br>
-    <input type="radio" name="question5" value="true" required> True<br>
-    <input type="radio" name="question5" value="false"> False
-    <button type="button" onclick="showQuestion2()">Continue</button>
-  </fieldset>
-  <br>
+ 
+    
+    
 
-
-    <fieldset id="question2" style="display:none; color:white;">
-      <legend>Question 2</legend>
-      <label for="question2" style="color:white;">Do you prefer short or long term trades?</label><br>
-      <input type="radio" name="question2" value="true" required> Short<br>
-      <input type="radio" name="question2" value="false"> Long
-      <br>
-      <button type="button" onclick="showQuestion3()">Continue</button>
-    </fieldset>
-    <br>
-    
-    
-    <fieldset id="question3" style="display:none; color:white;">
-      <legend>Question 3</legend>
-      <label for="question3" style="color:white;">Which type of companies do you preferr?</label><br>
-      <input type="radio" name="question3" value="true" required> Environmentally friendly<br>
-      <input type="radio" name="question3" value="false"> No preference
-      <br>
-      <button type="button" onclick="showQuestion4()">Continue</button>
-    </fieldset>
-    <br>
-    
-    
-    <fieldset id="question4" style="display:none; color:white;">
-      <legend>Question 4</legend>
-      <label for="question4" style="color:white;">What type of stocks do you prefer? Health, Oil & Gas, Tech, Penny, etc.</label><br>
-      <input type="radio" name="question4" value="true" required> True<br>
-      <input type="radio" name="question4" value="false"> False
-      <br>
-      <button type="button" onclick="showQuestion5()">Continue</button>
-    </fieldset>
-    <br>
 
 
     <fieldset id="question5" style="color:white;">
@@ -245,8 +207,8 @@
       <div class="game-quiz-container">
 
           <div class="game-details-container">
-              <h1>Score : <span id="player-score"></span> / 100</h1>
-              <h1> Question : <span id="question-number"></span> / 100</h1>
+              <h1>Score : <span id="player-score"></span> / 13</h1>
+              <h1> Question : <span id="question-number"></span> / 13</h1>
           </div>
 
           <div class="game-question-container">
@@ -338,7 +300,7 @@
 <script>
   
 
-const question = [
+const questions = [
   {
   question: "What are the up and downs on the stock chart called?",
   optionA: "Skewing",
@@ -462,10 +424,20 @@ function handleQuestions() {
 
 
   
-      let questionNumber = 1 
-  let playerScore = 0 
+
+let questionNumber = 1 //holds the current question number
+let playerScore = 0  //holds the player score
+let wrongAttempt = 0 //amount of wrong answers picked by player
+let indexNumber = 0 //will be used in displaying next question
 
       
+
+
+
+
+
+
+
   </script>
   
   
@@ -518,13 +490,141 @@ function showResults(questions, quizContainer, resultsContainer){
 
 
 function NextQuestion(index) {
-  document.getElementById("question-number").innerHTML = questionNumber
-  document.getElementById("player-score").innerHTML = playerScore
-  document.getElementById("display-question").innerHTML = currentQuestion.question;
-  document.getElementById("option-one-label").innerHTML = currentQuestion.optionA;
-  document.getElementById("option-two-label").innerHTML = currentQuestion.optionB;
-  document.getElementById("option-three-label").innerHTML = currentQuestion.optionC;
-  document.getElementById("option-four-label").innerHTML = currentQuestion.optionD;
+    handleQuestions()
+    const currentQuestion = shuffledQuestions[index]
+    document.getElementById("question-number").innerHTML = questionNumber
+    document.getElementById("player-score").innerHTML = playerScore
+    document.getElementById("display-question").innerHTML = currentQuestion.question;
+    document.getElementById("option-one-label").innerHTML = currentQuestion.optionA;
+    document.getElementById("option-two-label").innerHTML = currentQuestion.optionB;
+    document.getElementById("option-three-label").innerHTML = currentQuestion.optionC;
+    document.getElementById("option-four-label").innerHTML = currentQuestion.optionD;
+
+
+
+
+  function checkForAnswer() {
+    const currentQuestion = shuffledQuestions[indexNumber] 
+    const currentQuestionAnswer = currentQuestion.correctOption 
+    const options = document.getElementsByName("option"); 
+    let correctOption = null
+
+    options.forEach((option) => {
+        if (option.value === currentQuestionAnswer) {
+
+            correctOption = option.labels[0].id
+        }
+    })
+
+    if (options[0].checked === false && options[1].checked === false && options[2].checked === false && options[3].checked == false) {
+        document.getElementById('option-modal').style.display = "flex"
+    }
+
+
+    options.forEach((option) => {
+        if (option.checked === true && option.value === currentQuestionAnswer) {
+            document.getElementById(correctOption).style.backgroundColor = "green"
+            playerScore++ 
+            indexNumber++ 
+            setTimeout(() => {
+                questionNumber++
+            }, 1000)
+        }
+
+        else if (option.checked && option.value !== currentQuestionAnswer) {
+            const wrongLabelId = option.labels[0].id
+            document.getElementById(wrongLabelId).style.backgroundColor = "red"
+            document.getElementById(correctOption).style.backgroundColor = "green"
+            wrongAttempt++ 
+            indexNumber++
+
+            setTimeout(() => {
+                questionNumber++
+            }, 1000)
+        }
+    })
+}
+
+
+
+
+function handleNextQuestion() {
+    checkForAnswer() 
+    unCheckRadioButtons()
+
+    setTimeout(() => {
+        if (indexNumber <= 9) {
+
+            NextQuestion(indexNumber)
+        }
+        else {
+            handleEndGame()
+        }
+        resetOptionBackground()
+    }, 1000);
+}
+
+
+function resetOptionBackground() {
+    const options = document.getElementsByName("option");
+    options.forEach((option) => {
+        document.getElementById(option.labels[0].id).style.backgroundColor = ""
+    })
+}
+
+
+function unCheckRadioButtons() {
+    const options = document.getElementsByName("option");
+    for (let i = 0; i < options.length; i++) {
+        options[i].checked = false;
+    }
+}
+
+
+function handleEndGame() {
+    let remark = null
+    let remarkColor = null
+
+
+    if (playerScore <= 3) {
+        remark = "Bad Grades, Keep Practicing."
+        remarkColor = "red"
+    }
+    else if (playerScore >= 4 && playerScore < 7) {
+        remark = "Average Grades, You can do better."
+        remarkColor = "orange"
+    }
+    else if (playerScore >= 7) {
+        remark = "Excellent, Keep the good work going."
+        remarkColor = "green"
+    }
+    const playerGrade = (playerScore / 13) * 100
+
+
+    document.getElementById('remarks').innerHTML = remark
+    document.getElementById('remarks').style.color = remarkColor
+    document.getElementById('grade-percentage').innerHTML = playerGrade
+    document.getElementById('wrong-answers').innerHTML = wrongAttempt
+    document.getElementById('right-answers').innerHTML = playerScore
+    document.getElementById('score-modal').style.display = "flex"
+
+}
+
+
+function closeScoreModal() {
+    questionNumber = 1
+    playerScore = 0
+    wrongAttempt = 0
+    indexNumber = 0
+    shuffledQuestions = []
+    NextQuestion(indexNumber)
+    document.getElementById('score-modal').style.display = "none"
+}
+
+
+function closeOptionModal() {
+    document.getElementById('option-modal').style.display = "none"
+}
 
 
 } 
@@ -798,6 +898,46 @@ input[type=radio]:checked ~ .option {
     }
 }
 
+@media(min-width : 350px) and (max-width : 700px){
+   .game-quiz-container{
+       width: 90%;
+       height: 80vh;
+    }
+    .game-details-container h1{
+        font-size: 1rem;
+    }
+
+    .game-question-container{
+        height: 8rem;
+    }
+
+    .game-question-container h1{
+        font-size: 0.9rem;
+     }
+
+    .game-options-container span{
+        width: 90%;
+    }
+    .modal-content-container{
+        width: 90%;
+        height: 25rem;
+    }
+    .modal-content-container h1{
+        font-size: 1.2rem;
+    }
+}
+
+
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
+
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
   
   
 </style>
