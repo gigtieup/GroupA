@@ -176,91 +176,90 @@
 
 
 
+  <body onload="NextQuestion(0)">
+    <main>
+        <!-- creating a modal for when quiz ends -->
+        <div class="modal-container" id="score-modal">
+
+            <div class="modal-content-container">
+
+                <h1>Congratulations, Quiz Completed.</h1>
+
+                <div class="grade-details">
+                    <p>Attempts : 1000</p>
+                    <p>Wrong Answers : <span id="wrong-answers"></span></p>
+                    <p>Right Answers : <span id="right-answers"></span></p>
+                    <p>Grade : <span id="grade-percentage"></span>%</p>
+                    <p ><span id="remarks"></span></p>
+                </div>
+
+                <div class="modal-button-container">
+                    <button onclick="closeScoreModal()">Continue</button>
+                </div>
+
+            </div>
+        </div>
+<!-- end of modal of quiz details-->
+
+        <div class="game-quiz-container">
+
+            <div class="game-details-container">
+                <h1>Score : <span id="player-score"></span> / 13</h1>
+                <h1> Question : <span id="question-number"></span> / 13</h1>
+            </div>
+
+            <div class="game-question-container">
+                <h1 id="display-question"></h1>
+            </div>
+
+            <div class="game-options-container">
+
+               <div class="modal-container" id="option-modal">
+
+                    <div class="modal-content-container">
+                         <h1>Please Pick An Option</h1>
+
+                         <div class="modal-button-container">
+                            <button onclick="closeOptionModal()">Continue</button>
+                        </div>
+
+                    </div>
+
+               </div>
+
+                <span>
+                    <input type="radio" id="option-one" name="option" class="radio" value="optionA" />
+                    <label for="option-one" class="option" id="option-one-label"></label>
+                </span>
 
 
-
-<body onload="NextQuestion(0)">
-  <main>
-
-      <div class="modal-container" id="score-modal">
-
-          <div class="modal-content-container">
-
-              <h1>Congratulations, Quiz Completed.</h1>
-
-              <div class="grade-details">
-                  <p>Attempts : 100</p>
-                  <p>Wrong Answers : <span id="wrong-answers"></span></p>
-                  <p>Right Answers : <span id="right-answers"></span></p>
-                  <p>Grade : <span id="grade-percentage"></span>%</p>
-                  <p ><span id="remarks"></span></p>
-              </div>
-
-              <div class="modal-button-container">
-                  <button onclick="closeScoreModal()">Continue</button>
-              </div>
-
-          </div>
-      </div>
+                <span>
+                    <input type="radio" id="option-two" name="option" class="radio" value="optionB" />
+                    <label for="option-two" class="option" id="option-two-label"></label>
+                </span>
 
 
-      <div class="game-quiz-container">
-
-          <div class="game-details-container">
-              <h1>Score : <span id="player-score"></span> / 13</h1>
-              <h1> Question : <span id="question-number"></span> / 13</h1>
-          </div>
-
-          <div class="game-question-container">
-              <h1 id="display-question"></h1>
-          </div>
-
-          <div class="game-options-container">
-
-             <div class="modal-container" id="option-modal">
-                  <div class="modal-content-container">
-                       <h1>Please Pick An Option</h1>
-                
-                       <div class="modal-button-container">
-                          <button onclick="closeOptionModal()">Continue</button>
-                      </div>
-
-                  </div>
-
-             </div>
-
-              <span>
-                  <input type="radio" id="option-one" name="option" class="radio" value="optionA" />
-                  <label for="option-one" class="option" id="option-one-label"></label>
-              </span>
+                <span>
+                    <input type="radio" id="option-three" name="option" class="radio" value="optionC" />
+                    <label for="option-three" class="option" id="option-three-label"></label>
+                </span>
 
 
-              <span>
-                  <input type="radio" id="option-two" name="option" class="radio" value="optionB" />
-                  <label for="option-two" class="option" id="option-two-label"></label>
-              </span>
+                <span>
+                    <input type="radio" id="option-four" name="option" class="radio" value="optionD" />
+                    <label for="option-four" class="option" id="option-four-label"></label>
+                </span>
 
 
-              <span>
-                  <input type="radio" id="option-three" name="option" class="radio" value="optionC" />
-                  <label for="option-three" class="option" id="option-three-label"></label>
-              </span>
+            </div>
 
+            <div class="next-button-container">
+                <button onclick="handleNextQuestion()">Next Question</button>
+            </div>
 
-              <span>
-                  <input type="radio" id="option-four" name="option" class="radio" value="optionD" />
-                  <label for="option-four" class="option" id="option-four-label"></label>
-              </span>
+        </div>
+    </main>
 
-
-          </div>
-
-          <div class="next-button-container">
-              <button onclick="handleNextQuestion()">Next Question</button>
-          </div>
-
-      </div>
-  </main>
 </body>
 
 
@@ -270,366 +269,6 @@
 
 
 
-
-
-
-
-
-<script>
-  const startButton = document.getElementById('start-btn' )
-  const nextButton = document.getElementById('next-btn' )
-  
-  const questionContainerElement = document.getElementById (' question-database')
-  const questionElement = document.getElementById (' question')
-  const answerButtonsElement=document.getElementById('answer-buttons')
-  
-  
-  
-  let quizResult =0;
-  
-  
-  
-  
-  
-  
-</script>
-  
-
-
-
-<script>
-  
-
-const questions = [
-  {
-  question: "What are the up and downs on the stock chart called?",
-  optionA: "Skewing",
-  optionB: "Fluctuation",
-  optionC: "Candles",
-  optionD: "Increase and Decrease",
-  correctOption: "optionC"
-  },
-  
-  {
-  question: "What is a company?",
-  optionA: "A business or association",
-  optionB: "Group of friends",
-  optionC: "Collaborates",
-  optionD: "A class",
-  correctOption: "optionA"
-  },
-  
-  {
-  question: "What is a entrepreneur?",
-  optionA: "Family member",
-  optionB: "A friendly Person",
-  optionC: "A person who organizes and operates a business",
-  optionD: "George Washington",
-  correctOption: "optionC"
-  },
-  {
-  question: "What is a public corporation?",
-  optionA: "Company rhar is set up in public",
-  optionB: "Food stand",
-  optionC: "School",
-  optionD: "Stock of a public company that can be owned by individuals and investors",
-  correctOption: "optionD"
-  },
-  {
-  question: "What is a common stock?",
-  optionA: "A investing company",
-  optionB: "A group of people that work together to make a business",
-  optionC: "Shares where their entitlement to dividends may vary in amount and may be missed",
-  optionD: "Candles",
-  correctOption: "optionC"
-  },
-  {
-  question: "When do stock prices go up and down?",
-  optionA: "When the performance of the company increases or decreases",
-  optionB: "Randomly made numbers",
-  optionC: "The day of the week",
-  optionD: "I have no idea",
-  correctOption: "optionA"
-  },
-  {
-  question: "What are blue chip stocks?",
-  optionA: "The worst performing companies",
-  optionB: "Company stocks that are stable (Not increasing or decreasing)",
-  optionC: "Blue chips",
-  optionD: "Stocks that are from the well-established companies, usually market leaders",
-  correctOption: "optionD"
-  },
-  {
-  question: "Who should be interested in blue chip stocks?",
-  optionA: "People that want to lose money",
-  optionB: "People that want a stable and low risk stock",
-  optionC: "People that want stocks that have big chance for increasing or decreasing",
-  optionD: "People that like to invests in risks",
-  correctOption: "optionB"
-  },
-  {
-  question: "What is a growth stock?",
-  optionA: "Stock that grew before but has started to flatline",
-  optionB: "A company that is earning more than the average across the entire market",
-  optionC: "Person that is skilled in the stock market",
-  optionD: "A person that day trades",
-  correctOption: "optionB"
-  },
-  {
-  question: "Who should be interested in growth stocks?",
-  optionA: "People that are not experienced in the stock market",
-  optionB: "People that want to invest in companies with low risk",
-  optionC: "Person that want to be risky in the stock market",
-  optionD: "People that want a stable stock",
-  correctOption: "optionC"
-  },
-  {
-  question: "What is income stock?",
-  optionA: "A stock that is given out for free, similar to a sample",
-  optionB: "A stock that makes money over time",
-  optionC: "The money that employees make on a regular basis",
-  optionD: "An equity security that pays regularly, often steadily increasing dividends",
-  correctOption: "optionD"
-  },
-  {
-  question: "Who would be interested in income stocks?",
-  optionA: "People that want a low risk stock",
-  optionB: "People that want a high risk stock",
-  optionC: "People that have no interest in the stock market",
-  optionD: "People that don't want to make money",
-  correctOption: "optionA"
-  },
-  {
-  question: "What is a defensive stock?",
-  optionA: "People that want a low risk stock",
-  optionB: "A stock that provides consistent dividends",
-  optionC: "People that have no interest in the stock market",
-  optionD: "People that don't want to make money",
-   correctOption: "optionB"
-  }
-  ]
-
-
-  let shuffledQuestions = [questions] 
-
-function handleQuestions() { 
-
-    while (shuffledQuestions.length <= 13) {
-        const random = questions[Math.floor(Math.random() * questions.length)]
-        if (!shuffledQuestions.includes(random)) {
-            shuffledQuestions.push(random)
-        }
-    }
-}
-
-
-  
-
-let questionNumber = 1 //holds the current question number
-let playerScore = 0  //holds the player score
-let wrongAttempt = 0 //amount of wrong answers picked by player
-let indexNumber = 0 //will be used in displaying next question
-
-      
-
-
-
-
-
-
-
-  </script>
-  
-  
-  
-
-  <script>
-
-
-function showResults(questions, quizContainer, resultsContainer){
-	
-
-	var answerContainers = quizContainer.querySelectorAll('.answers');
-	
-
-	var userAnswer = 'input';
-	var numCorrect = 0;
-	
-
-	for(var i=0; i<questions.length; i++){
-
-
-		userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
-		
-
-		if(userAnswer===questions[i].correctAnswer){
-
-			numCorrect++;
-			
-
-			answerContainers[i].style.color = 'lightgreen';
-		}
-
-		else{
-
-			answerContainers[i].style.color = 'red';
-		}
-	}
-
-
-	resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
-}
-
-
-  
-
-
-
-
-
-
-
-function NextQuestion(index) {
-    handleQuestions()
-    const currentQuestion = shuffledQuestions[index]
-    document.getElementById("question-number").innerHTML = questionNumber
-    document.getElementById("player-score").innerHTML = playerScore
-    document.getElementById("display-question").innerHTML = currentQuestion.question;
-    document.getElementById("option-one-label").innerHTML = currentQuestion.optionA;
-    document.getElementById("option-two-label").innerHTML = currentQuestion.optionB;
-    document.getElementById("option-three-label").innerHTML = currentQuestion.optionC;
-    document.getElementById("option-four-label").innerHTML = currentQuestion.optionD;
-
-
-
-
-  function checkForAnswer() {
-    const currentQuestion = shuffledQuestions[indexNumber] 
-    const currentQuestionAnswer = currentQuestion.correctOption 
-    const options = document.getElementsByName("option"); 
-    let correctOption = null
-
-    options.forEach((option) => {
-        if (option.value === currentQuestionAnswer) {
-
-            correctOption = option.labels[0].id
-        }
-    })
-
-    if (options[0].checked === false && options[1].checked === false && options[2].checked === false && options[3].checked == false) {
-        document.getElementById('option-modal').style.display = "flex"
-    }
-
-
-    options.forEach((option) => {
-        if (option.checked === true && option.value === currentQuestionAnswer) {
-            document.getElementById(correctOption).style.backgroundColor = "green"
-            playerScore++ 
-            indexNumber++ 
-            setTimeout(() => {
-                questionNumber++
-            }, 1000)
-        }
-
-        else if (option.checked && option.value !== currentQuestionAnswer) {
-            const wrongLabelId = option.labels[0].id
-            document.getElementById(wrongLabelId).style.backgroundColor = "red"
-            document.getElementById(correctOption).style.backgroundColor = "green"
-            wrongAttempt++ 
-            indexNumber++
-
-            setTimeout(() => {
-                questionNumber++
-            }, 1000)
-        }
-    })
-}
-
-
-
-
-function handleNextQuestion() {
-    checkForAnswer() 
-    unCheckRadioButtons()
-
-    setTimeout(() => {
-        if (indexNumber <= 9) {
-
-            NextQuestion(indexNumber)
-        }
-        else {
-            handleEndGame()
-        }
-        resetOptionBackground()
-    }, 1000);
-}
-
-
-function resetOptionBackground() {
-    const options = document.getElementsByName("option");
-    options.forEach((option) => {
-        document.getElementById(option.labels[0].id).style.backgroundColor = ""
-    })
-}
-
-
-function unCheckRadioButtons() {
-    const options = document.getElementsByName("option");
-    for (let i = 0; i < options.length; i++) {
-        options[i].checked = false;
-    }
-}
-
-
-function handleEndGame() {
-    let remark = null
-    let remarkColor = null
-
-
-    if (playerScore <= 3) {
-        remark = "Bad Grades, Keep Practicing."
-        remarkColor = "red"
-    }
-    else if (playerScore >= 4 && playerScore < 7) {
-        remark = "Average Grades, You can do better."
-        remarkColor = "orange"
-    }
-    else if (playerScore >= 7) {
-        remark = "Excellent, Keep the good work going."
-        remarkColor = "green"
-    }
-    const playerGrade = (playerScore / 13) * 100
-
-
-    document.getElementById('remarks').innerHTML = remark
-    document.getElementById('remarks').style.color = remarkColor
-    document.getElementById('grade-percentage').innerHTML = playerGrade
-    document.getElementById('wrong-answers').innerHTML = wrongAttempt
-    document.getElementById('right-answers').innerHTML = playerScore
-    document.getElementById('score-modal').style.display = "flex"
-
-}
-
-
-function closeScoreModal() {
-    questionNumber = 1
-    playerScore = 0
-    wrongAttempt = 0
-    indexNumber = 0
-    shuffledQuestions = []
-    NextQuestion(indexNumber)
-    document.getElementById('score-modal').style.display = "none"
-}
-
-
-function closeOptionModal() {
-    document.getElementById('option-modal').style.display = "none"
-}
-
-
-} 
-
-</script>
   
 <style>*{
       margin: 0;
@@ -941,3 +580,275 @@ input[type=radio]:checked ~ .option {
   
   
 </style>
+
+
+
+<script>
+  //this would be the object shape for storing the questions  
+//you can change the questions to your own taste or even add more questions..
+const questions = [
+{
+question: "What are the up and downs on the stock chart called?",
+optionA: "Skewing",
+optionB: "Fluctuation",
+optionC: "Candles",
+optionD: "Increase and Decrease",
+correctOption: "optionC"
+},
+
+{
+question: "What is a company?",
+optionA: "A business or association",
+optionB: "Group of friends",
+optionC: "Collaborates",
+optionD: "A class",
+correctOption: "optionA"
+},
+
+{
+question: "What is a entrepreneur?",
+optionA: "Family member",
+optionB: "A friendly Person",
+optionC: "A person who organizes and operates a business",
+optionD: "George Washington",
+correctOption: "optionC"
+},
+{
+question: "What is a public corporation?",
+optionA: "Company rhar is set up in public",
+optionB: "Food stand",
+optionC: "School",
+optionD: "Stock of a public company that can be owned by individuals and investors",
+correctOption: "optionD"
+},
+{
+question: "What is a common stock?",
+optionA: "A investing company",
+optionB: "A group of people that work together to make a business",
+optionC: "Shares where their entitlement to dividends may vary in amount and may be missed",
+optionD: "Candles",
+correctOption: "optionC"
+},
+{
+question: "When do stock prices go up and down?",
+optionA: "When the performance of the company increases or decreases",
+optionB: "Randomly made numbers",
+optionC: "The day of the week",
+optionD: "I have no idea",
+correctOption: "optionA"
+},
+{
+question: "What are blue chip stocks?",
+optionA: "The worst performing companies",
+optionB: "Company stocks that are stable (Not increasing or decreasing)",
+optionC: "Blue chips",
+optionD: "Stocks that are from the well-established companies, usually market leaders",
+correctOption: "optionD"
+},
+{
+question: "Who should be interested in blue chip stocks?",
+optionA: "People that want to lose money",
+optionB: "People that want a stable and low risk stock",
+optionC: "People that want stocks that have big chance for increasing or decreasing",
+optionD: "People that like to invests in risks",
+correctOption: "optionB"
+},
+{
+question: "What is a growth stock?",
+optionA: "Stock that grew before but has started to flatline",
+optionB: "A company that is earning more than the average across the entire market",
+optionC: "Person that is skilled in the stock market",
+optionD: "A person that day trades",
+correctOption: "optionB"
+},
+{
+question: "Who should be interested in growth stocks?",
+optionA: "People that are not experienced in the stock market",
+optionB: "People that want to invest in companies with low risk",
+optionC: "Person that want to be risky in the stock market",
+optionD: "People that want a stable stock",
+correctOption: "optionC"
+},
+{
+question: "What is income stock?",
+optionA: "A stock that is given out for free, similar to a sample",
+optionB: "A stock that makes money over time",
+optionC: "The money that employees make on a regular basis",
+optionD: "An equity security that pays regularly, often steadily increasing dividends",
+correctOption: "optionD"
+},
+{
+question: "Who would be interested in income stocks?",
+optionA: "People that want a low risk stock",
+optionB: "People that want a high risk stock",
+optionC: "People that have no interest in the stock market",
+optionD: "People that don't want to make money",
+correctOption: "optionA"
+},
+{
+question: "What is a defensive stock?",
+optionA: "People that want a low risk stock",
+optionB: "A stock that provides consistent dividends",
+optionC: "People that have no interest in the stock market",
+optionD: "People that don't want to make money",
+ correctOption: "optionB"
+}
+]
+
+
+let shuffledQuestions = [] 
+
+function handleQuestions() { 
+
+  while (shuffledQuestions.length <= 9) {
+      const random = questions[Math.floor(Math.random() * questions.length)]
+      if (!shuffledQuestions.includes(random)) {
+          shuffledQuestions.push(random)
+      }
+  }
+}
+
+
+let questionNumber = 1 
+let playerScore = 0  
+let wrongAttempt = 0 
+let indexNumber = 0 
+
+
+function NextQuestion(index) {
+  handleQuestions()
+  const currentQuestion = shuffledQuestions[index]
+  document.getElementById("question-number").innerHTML = questionNumber
+  document.getElementById("player-score").innerHTML = playerScore
+  document.getElementById("display-question").innerHTML = currentQuestion.question;
+  document.getElementById("option-one-label").innerHTML = currentQuestion.optionA;
+  document.getElementById("option-two-label").innerHTML = currentQuestion.optionB;
+  document.getElementById("option-three-label").innerHTML = currentQuestion.optionC;
+  document.getElementById("option-four-label").innerHTML = currentQuestion.optionD;
+
+}
+
+
+function checkForAnswer() {
+  const currentQuestion = shuffledQuestions[indexNumber] 
+  const currentQuestionAnswer = currentQuestion.correctOption 
+  const options = document.getElementsByName("option"); 
+  let correctOption = null
+
+  options.forEach((option) => {
+      if (option.value === currentQuestionAnswer) {
+          correctOption = option.labels[0].id
+      }
+  })
+
+
+  if (options[0].checked === false && options[1].checked === false && options[2].checked === false && options[3].checked == false) {
+      document.getElementById('option-modal').style.display = "flex"
+  }
+
+  //Radio input makes them choose one of the options
+  options.forEach((option) => {
+      if (option.checked === true && option.value === currentQuestionAnswer) {
+          document.getElementById(correctOption).style.backgroundColor = "green"
+          playerScore++ 
+          indexNumber++ 
+
+          setTimeout(() => {
+              questionNumber++
+          }, 1000)
+      }
+
+      else if (option.checked && option.value !== currentQuestionAnswer) {
+          const wrongLabelId = option.labels[0].id
+          document.getElementById(wrongLabelId).style.backgroundColor = "red"
+          document.getElementById(correctOption).style.backgroundColor = "green"
+          wrongAttempt++ 
+          indexNumber++
+          setTimeout(() => {
+              questionNumber++
+          }, 1000)
+      }
+  })
+}
+
+
+
+
+function handleNextQuestion() {
+  checkForAnswer() 
+  unCheckRadioButtons()
+
+  setTimeout(() => {
+      if (indexNumber <= 9) {
+
+          NextQuestion(indexNumber)
+      }
+      else {
+          handleEndGame()
+      }
+      resetOptionBackground()
+  }, 1000);
+}
+
+//Reset the button backgrounds after question
+function resetOptionBackground() {
+  const options = document.getElementsByName("option");
+  options.forEach((option) => {
+      document.getElementById(option.labels[0].id).style.backgroundColor = ""
+  })
+}
+
+// Reset all buttons after question answered
+function unCheckRadioButtons() {
+  const options = document.getElementsByName("option");
+  for (let i = 0; i < options.length; i++) {
+      options[i].checked = false;
+  }
+}
+
+
+function handleEndGame() {
+  let remark = null
+  let remarkColor = null
+
+
+  if (playerScore <= 3) {
+      remark = "Bad Score."
+      remarkColor = "red"
+  }
+  else if (playerScore >= 4 && playerScore < 7) {
+      remark = "Ok score."
+      remarkColor = "orange"
+  }
+  else if (playerScore >= 7) {
+      remark = "Excellent, Keep the good work going."
+      remarkColor = "green"
+  }
+  const playerGrade = (playerScore / 10) * 100
+
+  //data to display to score board
+  document.getElementById('remarks').innerHTML = remark
+  document.getElementById('remarks').style.color = remarkColor
+  document.getElementById('grade-percentage').innerHTML = playerGrade
+  document.getElementById('wrong-answers').innerHTML = wrongAttempt
+  document.getElementById('right-answers').innerHTML = playerScore
+  document.getElementById('score-modal').style.display = "flex"
+
+}
+
+//closes score modal, resets game and reshuffles questions
+function closeScoreModal() {
+  questionNumber = 1
+  playerScore = 0
+  wrongAttempt = 0
+  indexNumber = 0
+  shuffledQuestions = []
+  NextQuestion(indexNumber)
+  document.getElementById('score-modal').style.display = "none"
+}
+
+//function to close warning modal
+function closeOptionModal() {
+  document.getElementById('option-modal').style.display = "none"
+}
+</script>
