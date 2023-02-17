@@ -118,9 +118,11 @@
   function multiplyByTwo() {
     var num = document.getElementById("numInput").value;
     var result = num * 141.86;
+    result = Math.round(result / 1.01) * 1.01; // round to the nearest 100's place
     alert(document.getElementById("result").innerHTML = "Just confirming the transaction of $" + result);
   }
 </script>
+
 <form action="stock.php" method="post">
 </body>
 <div class="col d-flex justify-content-center">
