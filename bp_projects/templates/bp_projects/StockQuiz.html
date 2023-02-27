@@ -904,7 +904,7 @@ function closeOptionModal() {
    // prepare HTML result container for new output
    const resultContainer = document.getElementById("result");
    // prepare URL's to allow easy switch from deployment and localhost
-   const url = "http://127.0.0.1:8086/api/facts/"
+   const url = "http://127.0.0.1:5000/api/facts/"
   
   
    const create_fetch = url + '/create';
@@ -976,7 +976,7 @@ function closeOptionModal() {
   
    function add_row(data) {
      const tr = document.createElement("tr");
-     const car = document.createElement("td");
+     const stock = document.createElement("td");
      const industry = document.createElement("td");
     
      const id = document.createElement("td");
@@ -984,7 +984,7 @@ function closeOptionModal() {
   
   
      // obtain data that is specific to the API
-     car.innerHTML = data.car;
+     stock.innerHTML = data.stock;
      industry.innerHTML = data.industry;
       
      id.innerHTML = data.id;
@@ -992,7 +992,7 @@ function closeOptionModal() {
   
   
      // add HTML to container
-     tr.appendChild(car);
+     tr.appendChild(stock);
      tr.appendChild(industry);
     
      tr.appendChild(id);
@@ -1009,7 +1009,7 @@ function closeOptionModal() {
      //Validate Password (must be 6-20 characters in len)
      //verifyPassword("click");
      const body = {
-         car: document.getElementById("car").value,
+         stock: document.getElementById("stock").value,
          industry: document.getElementById("industry").value,
      };
      const requestOptions = {
@@ -1046,7 +1046,7 @@ function closeOptionModal() {
    //Validate Password (must be 6-20 characters in len)
    //verifyPassword("click");
    const body = {
-       car: document.getElementById("car").value,
+       stock: document.getElementById("stock").value,
        industry: document.getElementById("industry").value,
    };
    const requestOptions = {
