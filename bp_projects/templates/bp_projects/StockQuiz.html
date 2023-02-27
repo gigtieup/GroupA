@@ -1,4 +1,4 @@
-<body style="background-color:rgb(36, 35, 35);"></body>
+<body style="background-color:#747474;"></body>
 
 
 <head>
@@ -168,4 +168,950 @@
       document.getElementById("recommendation").innerHTML = recommendation;
     }
   </script>
+<<<<<<< HEAD
   </head>
+=======
+  </head>
+
+
+
+
+
+
+  <body onload="NextQuestion(0)">
+    <main>
+        <!-- creating a modal for when quiz ends -->
+        <div class="modal-container" id="score-modal">
+
+            <div class="modal-content-container">
+
+                <h1>Congratulations, Quiz Completed.</h1>
+
+                <div class="grade-details">
+                    <p>Attempts : 1000</p>
+                    <p>Wrong Answers : <span id="wrong-answers"></span></p>
+                    <p>Right Answers : <span id="right-answers"></span></p>
+                    <p>Grade : <span id="grade-percentage"></span>%</p>
+                    <p ><span id="remarks"></span></p>
+                </div>
+
+                <div class="modal-button-container">
+                    <button onclick="closeScoreModal()">Continue</button>
+                </div>
+
+            </div>
+        </div>
+<!-- end of modal of quiz details-->
+
+        <div class="game-quiz-container">
+
+            <div class="game-details-container">
+                <h1>Score : <span id="player-score"></span> / 13</h1>
+                <h1> Question : <span id="question-number"></span> / 13</h1>
+            </div>
+
+            <div class="game-question-container">
+                <h1 id="display-question"></h1>
+            </div>
+
+            <div class="game-options-container">
+
+               <div class="modal-container" id="option-modal">
+
+                    <div class="modal-content-container">
+                         <h1>Please Pick An Option</h1>
+
+                         <div class="modal-button-container">
+                            <button onclick="closeOptionModal()">Continue</button>
+                        </div>
+
+                    </div>
+
+               </div>
+
+                <span>
+                    <input type="radio" id="option-one" name="option" class="radio" value="optionA" />
+                    <label for="option-one" class="option" id="option-one-label"></label>
+                </span>
+
+
+                <span>
+                    <input type="radio" id="option-two" name="option" class="radio" value="optionB" />
+                    <label for="option-two" class="option" id="option-two-label"></label>
+                </span>
+
+
+                <span>
+                    <input type="radio" id="option-three" name="option" class="radio" value="optionC" />
+                    <label for="option-three" class="option" id="option-three-label"></label>
+                </span>
+
+
+                <span>
+                    <input type="radio" id="option-four" name="option" class="radio" value="optionD" />
+                    <label for="option-four" class="option" id="option-four-label"></label>
+                </span>
+
+
+            </div>
+
+            <div class="next-button-container">
+                <button onclick="handleNextQuestion()">Next Question</button>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+
+
+
+
+
+
+
+
+  
+<style>*{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+  
+  html, body{
+      height: 100%;
+  }
+  
+  
+  body{
+      font-family: 'Montserrat', serif;
+  
+  }
+  
+  main{
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(179, 176, 166);
+      background-color : rgb(179, 176, 166);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+  }
+  
+  .game-quiz-container{
+      width: 40rem;
+      height: 30rem;
+      background-color: lightgray;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      border-radius: 30px;
+  }
+  
+  .game-details-container{
+      width: 80%;
+      height: 4rem;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+  }
+  
+  .game-details-container h1{
+      font-size: 1.2rem;
+  }
+  
+  .game-question-container{
+      width: 80%;
+      height: 8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid darkgray;
+      border-radius: 25px;
+  }
+  
+  .game-question-container h1{
+      font-size: 1.1rem;
+      text-align: center;
+      padding: 3px;
+  }
+  
+  .game-options-container{
+      width: 80%;
+      height: 12rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-around;
+  }
+  
+  .game-options-container span{
+      width: 45%;
+      height: 3rem;
+      border: 2px solid darkgray;
+      border-radius: 20px;
+      overflow: hidden;
+  }
+  span label{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: rgb(22, 22, 22);
+}
+
+span label:hover{
+    -ms-transform: scale(1.12);
+    -webkit-transform: scale(1.12);
+    transform: scale(1.12);
+    color: white;
+}
+
+input[type="radio"] {
+    position: relative;
+    display: none;
+}
+
+
+input[type=radio]:checked ~ .option {
+    background: paleturquoise;
+}
+
+.next-button-container{
+    width: 50%;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+}
+.next-button-container button{
+    width: 8rem;
+    height: 2rem;
+    border-radius: 10px;
+    background: none;
+    color: rgb(25, 25, 25);
+    font-weight: 600;
+    border: 2px solid gray;
+    cursor: pointer;
+    outline: none;
+}
+.next-button-container button:hover{
+    background-color: rgb(143, 93, 93);
+}
+
+.modal-container{
+    display: none;
+    position: fixed;
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+
+}
+
+.modal-content-container{
+    height: 20rem;
+    width: 25rem;
+    background-color: rgb(43, 42, 42);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 25px;
+}
+
+.modal-content-container h1{
+    font-size: 1.3rem;
+    height: 3rem;
+    color: lightgray;
+    text-align: center;
+}
+
+.grade-details{
+    width: 15rem;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.grade-details p{
+    color: white;
+    text-align: center;
+}
+
+.modal-button-container{
+    height: 2rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-button-container button{
+    width: 10rem;
+    height: 2rem;
+    background: none;
+    outline: none;
+    border: 1px solid rgb(252, 242, 241);
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 20px;
+}
+.modal-button-container button:hover{
+    background-color: rgb(83, 82, 82);
+}
+
+@media(min-width : 300px) and (max-width : 350px){
+    .game-quiz-container{
+        width: 90%;
+        height: 80vh;
+     }
+     .game-details-container h1{
+        font-size: 0.8rem;
+     }
+
+     .game-question-container{
+        height: 6rem;
+     }
+     .game-question-container h1{
+       font-size: 0.9rem;
+    }
+
+    .game-options-container span{
+        width: 90%;
+        height: 2.5rem;
+    }
+    .game-options-container span label{
+        font-size: 0.8rem;
+    }
+    .modal-content-container{
+        width: 90%;
+        height: 25rem;
+    }
+
+    .modal-content-container h1{
+        font-size: 1.2rem;
+    }
+}
+
+@media(min-width : 350px) and (max-width : 700px){
+   .game-quiz-container{
+       width: 90%;
+       height: 80vh;
+    }
+    .game-details-container h1{
+        font-size: 1rem;
+    }
+
+    .game-question-container{
+        height: 8rem;
+    }
+
+    .game-question-container h1{
+        font-size: 0.9rem;
+     }
+
+    .game-options-container span{
+        width: 90%;
+    }
+    .modal-content-container{
+        width: 90%;
+        height: 25rem;
+    }
+    .modal-content-container h1{
+        font-size: 1.2rem;
+    }
+}
+
+@media(min-width : 350px) and (max-width : 700px){
+   .game-quiz-container{
+       width: 90%;
+       height: 80vh;
+    }
+    .game-details-container h1{
+        font-size: 1rem;
+    }
+
+    .game-question-container{
+        height: 8rem;
+    }
+
+    .game-question-container h1{
+        font-size: 0.9rem;
+     }
+
+    .game-options-container span{
+        width: 90%;
+    }
+    .modal-content-container{
+        width: 90%;
+        height: 25rem;
+    }
+    .modal-content-container h1{
+        font-size: 1.2rem;
+    }
+}
+
+
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
+
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  
+  
+</style>
+
+
+
+<script>
+  //this would be the object shape for storing the questions  
+//you can change the questions to your own taste or even add more questions..
+const questions = [
+{
+question: "What are the up and downs on the stock chart called?",
+optionA: "Skewing",
+optionB: "Fluctuation",
+optionC: "Candles",
+optionD: "Increase and Decrease",
+correctOption: "optionC"
+},
+
+{
+question: "What is a company?",
+optionA: "A business or association",
+optionB: "Group of friends",
+optionC: "Collaborates",
+optionD: "A class",
+correctOption: "optionA"
+},
+
+{
+question: "What is a entrepreneur?",
+optionA: "Family member",
+optionB: "A friendly Person",
+optionC: "A person who organizes and operates a business",
+optionD: "George Washington",
+correctOption: "optionC"
+},
+{
+question: "What is a public corporation?",
+optionA: "Company rhar is set up in public",
+optionB: "Food stand",
+optionC: "School",
+optionD: "Stock of a public company that can be owned by individuals and investors",
+correctOption: "optionD"
+},
+{
+question: "What is a common stock?",
+optionA: "A investing company",
+optionB: "A group of people that work together to make a business",
+optionC: "Shares where their entitlement to dividends may vary in amount and may be missed",
+optionD: "Candles",
+correctOption: "optionC"
+},
+{
+question: "When do stock prices go up and down?",
+optionA: "When the performance of the company increases or decreases",
+optionB: "Randomly made numbers",
+optionC: "The day of the week",
+optionD: "I have no idea",
+correctOption: "optionA"
+},
+{
+question: "What are blue chip stocks?",
+optionA: "The worst performing companies",
+optionB: "Company stocks that are stable (Not increasing or decreasing)",
+optionC: "Blue chips",
+optionD: "Stocks that are from the well-established companies, usually market leaders",
+correctOption: "optionD"
+},
+{
+question: "Who should be interested in blue chip stocks?",
+optionA: "People that want to lose money",
+optionB: "People that want a stable and low risk stock",
+optionC: "People that want stocks that have big chance for increasing or decreasing",
+optionD: "People that like to invests in risks",
+correctOption: "optionB"
+},
+{
+question: "What is a growth stock?",
+optionA: "Stock that grew before but has started to flatline",
+optionB: "A company that is earning more than the average across the entire market",
+optionC: "Person that is skilled in the stock market",
+optionD: "A person that day trades",
+correctOption: "optionB"
+},
+{
+question: "Who should be interested in growth stocks?",
+optionA: "People that are not experienced in the stock market",
+optionB: "People that want to invest in companies with low risk",
+optionC: "Person that want to be risky in the stock market",
+optionD: "People that want a stable stock",
+correctOption: "optionC"
+},
+{
+question: "What is income stock?",
+optionA: "A stock that is given out for free, similar to a sample",
+optionB: "A stock that makes money over time",
+optionC: "The money that employees make on a regular basis",
+optionD: "An equity security that pays regularly, often steadily increasing dividends",
+correctOption: "optionD"
+},
+{
+question: "Who would be interested in income stocks?",
+optionA: "People that want a low risk stock",
+optionB: "People that want a high risk stock",
+optionC: "People that have no interest in the stock market",
+optionD: "People that don't want to make money",
+correctOption: "optionA"
+},
+{
+question: "What is a defensive stock?",
+optionA: "People that want a low risk stock",
+optionB: "A stock that provides consistent dividends",
+optionC: "People that have no interest in the stock market",
+optionD: "People that don't want to make money",
+ correctOption: "optionB"
+}
+]
+
+
+let shuffledQuestions = [] 
+
+function handleQuestions() { 
+
+  while (shuffledQuestions.length <= 9) {
+      const random = questions[Math.floor(Math.random() * questions.length)]
+      if (!shuffledQuestions.includes(random)) {
+          shuffledQuestions.push(random)
+      }
+  }
+}
+
+
+let questionNumber = 1 
+let playerScore = 0  
+let wrongAttempt = 0 
+let indexNumber = 0 
+
+
+function NextQuestion(index) {
+  handleQuestions()
+  const currentQuestion = shuffledQuestions[index]
+  document.getElementById("question-number").innerHTML = questionNumber
+  document.getElementById("player-score").innerHTML = playerScore
+  document.getElementById("display-question").innerHTML = currentQuestion.question;
+  document.getElementById("option-one-label").innerHTML = currentQuestion.optionA;
+  document.getElementById("option-two-label").innerHTML = currentQuestion.optionB;
+  document.getElementById("option-three-label").innerHTML = currentQuestion.optionC;
+  document.getElementById("option-four-label").innerHTML = currentQuestion.optionD;
+
+}
+
+
+function checkForAnswer() {
+  const currentQuestion = shuffledQuestions[indexNumber] 
+  const currentQuestionAnswer = currentQuestion.correctOption 
+  const options = document.getElementsByName("option"); 
+  let correctOption = null
+
+  options.forEach((option) => {
+      if (option.value === currentQuestionAnswer) {
+          correctOption = option.labels[0].id
+      }
+  })
+
+
+  if (options[0].checked === false && options[1].checked === false && options[2].checked === false && options[3].checked == false) {
+      document.getElementById('option-modal').style.display = "flex"
+  }
+
+  //Radio input makes them choose one of the options
+  options.forEach((option) => {
+      if (option.checked === true && option.value === currentQuestionAnswer) {
+          document.getElementById(correctOption).style.backgroundColor = "green"
+          playerScore++ 
+          indexNumber++ 
+
+          setTimeout(() => {
+              questionNumber++
+          }, 1000)
+      }
+
+      else if (option.checked && option.value !== currentQuestionAnswer) {
+          const wrongLabelId = option.labels[0].id
+          document.getElementById(wrongLabelId).style.backgroundColor = "red"
+          document.getElementById(correctOption).style.backgroundColor = "green"
+          wrongAttempt++ 
+          indexNumber++
+          setTimeout(() => {
+              questionNumber++
+          }, 1000)
+      }
+  })
+}
+
+
+
+
+function handleNextQuestion() {
+  checkForAnswer() 
+  unCheckRadioButtons()
+
+  setTimeout(() => {
+      if (indexNumber <= 9) {
+
+          NextQuestion(indexNumber)
+      }
+      else {
+          handleEndGame()
+      }
+      resetOptionBackground()
+  }, 1000);
+}
+
+//Reset the button backgrounds after question
+function resetOptionBackground() {
+  const options = document.getElementsByName("option");
+  options.forEach((option) => {
+      document.getElementById(option.labels[0].id).style.backgroundColor = ""
+  })
+}
+
+// Reset all buttons after question answered
+function unCheckRadioButtons() {
+  const options = document.getElementsByName("option");
+  for (let i = 0; i < options.length; i++) {
+      options[i].checked = false;
+  }
+}
+
+
+function handleEndGame() {
+  let remark = null
+  let remarkColor = null
+
+
+  if (playerScore <= 3) {
+      remark = "Bad Score."
+      remarkColor = "red"
+  }
+  else if (playerScore >= 4 && playerScore < 7) {
+      remark = "Ok score."
+      remarkColor = "orange"
+  }
+  else if (playerScore >= 7) {
+      remark = "Excellent, Keep the good work going."
+      remarkColor = "green"
+  }
+  const playerGrade = (playerScore / 10) * 100
+
+  //data to display to score board
+  document.getElementById('remarks').innerHTML = remark
+  document.getElementById('remarks').style.color = remarkColor
+  document.getElementById('grade-percentage').innerHTML = playerGrade
+  document.getElementById('wrong-answers').innerHTML = wrongAttempt
+  document.getElementById('right-answers').innerHTML = playerScore
+  document.getElementById('score-modal').style.display = "flex"
+
+}
+
+//closes score modal, resets game and reshuffles questions
+function closeScoreModal() {
+  questionNumber = 1
+  playerScore = 0
+  wrongAttempt = 0
+  indexNumber = 0
+  shuffledQuestions = []
+  NextQuestion(indexNumber)
+  document.getElementById('score-modal').style.display = "none"
+}
+
+//function to close warning modal
+function closeOptionModal() {
+  document.getElementById('option-modal').style.display = "none"
+}
+</script>
+
+
+
+
+
+<div class = "secondary">
+  <button id = "read_button" type = "button" onclick="read_users()"  class = "read-button"> Generate a Fact </button>
+  </div>
+  <table class = "readtable">
+   <thead>
+   <tr>
+     <th>Stock</th>
+     <th>Stock fact</th>
+     <th>id</th>
+  
+  
+   </tr>
+   </thead>
+   <tbody id="result">
+     <!-- javascript generated data -->
+   </tbody>
+  </table>
+  
+  
+  
+  
+  <p class = "form-tell">Add Your Own Fact</p>
+  
+  
+  <div class = "form-box">
+   <form action="javascript:create_fact()" class = "createForm">
+       <p><label class = "form-label">
+           stock:
+           <input class = "input-boxes" type="text" industry="stock" id="stock" required>
+       </label></p>
+       <p><label class = "form-label">
+           stock fact:
+           <input class = "input-boxes" type="text" industry="industry" id="industry" required>
+       </label></p>
+       <p>
+           <button class = "form-button">Create</button>
+       </p>
+   </form>
+  </div>
+  
+  
+  
+  
+  <script>
+   // prepare HTML result container for new output
+   const resultContainer = document.getElementById("result");
+   // prepare URL's to allow easy switch from deployment and localhost
+   const url = "https://dumbtrade.duckdns.org/api/facts/"
+  
+  
+   const create_fetch = url + '/create';
+   const read_fetch = url + '/';
+  
+  
+   // Load users on page entry
+   const read_button = document.getElementById("read_button");
+  
+  
+  
+  
+   // Display User Table, data is fetched from Backend Database
+   function read_users() {
+     // prepare fetch options
+    
+     const read_options = {
+       method: 'GET', // *GET, POST, PUT, DELETE, etc.
+       mode: 'cors', // no-cors, *cors, same-origin
+       cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+       credentials: 'omit', // include, *same-origin, omit
+       headers: {
+         'Content-Type': 'application/json'
+       },
+     };
+  
+  
+     // fetch the data from API
+     fetch(read_fetch, read_options)
+       // response is a RESTful "promise" on any successful fetch
+       .then(response => {
+         // check for response errors
+         if (response.status !== 200) {
+             const errorMsg = 'Database read error: ' + response.status;
+             console.log(errorMsg);
+             const tr = document.createElement("tr");
+             const td = document.createElement("td");
+             td.innerHTML = errorMsg;
+             tr.appendChild(td);
+             resultContainer.appendChild(tr);
+             return;
+         }
+         // valid response will have json data
+         response.json().then(data => {
+             console.log(data);
+             length = data.length;
+             number = Math.floor(Math.random() * length );
+             for (let row in data) {
+               console.log(data[row]);
+              
+               add_row(data[number]);
+               break;
+             }
+         })
+     })
+     // catch fetch errors (ie ACCESS to server blocked)
+     .catch(err => {
+       console.error(err);
+       const tr = document.createElement("tr");
+       const td = document.createElement("td");
+       td.innerHTML = err;
+       tr.appendChild(td);
+       resultContainer.appendChild(tr);
+     });
+   }
+  
+  
+  
+  
+   function add_row(data) {
+     const tr = document.createElement("tr");
+     const stock = document.createElement("td");
+     const industry = document.createElement("td");
+    
+     const id = document.createElement("td");
+    
+  
+  
+     // obtain data that is specific to the API
+     stock.innerHTML = data.stock;
+     industry.innerHTML = data.industry;
+      
+     id.innerHTML = data.id;
+    
+  
+  
+     // add HTML to container
+     tr.appendChild(stock);
+     tr.appendChild(industry);
+    
+     tr.appendChild(id);
+    
+  
+  
+     resultContainer.appendChild(tr);
+   }
+  
+  
+  
+  
+   function create_fact(){
+     //Validate Password (must be 6-20 characters in len)
+     //verifyPassword("click");
+     const body = {
+         stock: document.getElementById("stock").value,
+         industry: document.getElementById("industry").value,
+     };
+     const requestOptions = {
+         method: 'POST',
+         body: JSON.stringify(body),
+         headers: {
+             "content-type": "application/json",
+             'Authorization': 'Bearer my-token',
+         },
+     };
+  
+  
+     // URL for Create API
+     // Fetch API call to the database to create a new user
+     fetch(create_fetch, requestOptions)
+       .then(response => {
+         // trap error response from Web API
+         if (response.status !== 200) {
+           const errorMsg = 'Database create error: ' + response.status;
+           console.log(errorMsg);
+           const tr = document.createElement("tr");
+           const td = document.createElement("td");
+           td.innerHTML = errorMsg;
+           tr.appendChild(td);
+           resultContainer.appendChild(tr);
+           return;
+         }
+         // response contains valid result
+     })
+   }
+  
+  
+   function delete_fact(){
+   //Validate Password (must be 6-20 characters in len)
+   //verifyPassword("click");
+   const body = {
+       stock: document.getElementById("stock").value,
+       industry: document.getElementById("industry").value,
+   };
+   const requestOptions = {
+       method: 'DELETE',
+       body: JSON.stringify(body),
+       headers: {
+           "content-type": "application/json",
+           'Authorization': 'Bearer my-token',
+       },
+   };
+  
+  
+   // URL for Create API
+   // Fetch API call to the database to create a new user
+   fetch(create_fetch, requestOptions)
+     .then(response => {
+       // trap error response from Web API
+       if (response.status !== 200) {
+         const errorMsg = 'Database create error: ' + response.status;
+         console.log(errorMsg);
+         const tr = document.createElement("tr");
+         const td = document.createElement("td");
+         td.innerHTML = errorMsg;
+         tr.appendChild(td);
+         resultContainer.appendChild(tr);
+         return;
+       }
+       // response contains valid result
+   })
+   }
+   /// New for slideshow
+  
+  
+   let slideIndex = 0;
+   showSlides();
+  
+  
+   function showSlides() {
+   let i;
+   let slides = document.getElementsByClassName("mySlides");
+   let dots = document.getElementsByClassName("dot");
+   for (i = 0; i < slides.length; i++) {
+       slides[i].style.display = "none"; 
+   }
+   slideIndex++;
+   if (slideIndex > slides.length) {slideIndex = 1}   
+   for (i = 0; i < dots.length; i++) {
+       dots[i].className = dots[i].className.replace(" active", "");
+   }
+   slides[slideIndex-1].style.display = "block"; 
+   dots[slideIndex-1].className += " active";
+   setTimeout(showSlides, 2000); // Change image every 2 seconds
+   }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </script>
+  
+>>>>>>> 3f38158641aa8303f3ae3a68f93bf722aaf2eabf
