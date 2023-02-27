@@ -3,7 +3,7 @@ from flask_restful import Api, Resource # used for REST API building
 from datetime import datetime
 
 
-from model.facts import Facts
+from facts import Facts
 
 
 fact_api = Blueprint('fact_api', __name__,
