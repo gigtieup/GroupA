@@ -1,14 +1,14 @@
 import sqlite3
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
 # Set up the SQLite database
-conn = sqlite3.connect('/GroupA/stock.db')
+conn = sqlite3.connect('stock.db')
 c = conn.cursor()
 
 # Create the stocks table
-c.execute('''CREATE TABLE Stocks
+c.execute('''CREATE TABLE stocks
              (name text, price real, multiplier real)''')
 
 # Insert sample data
