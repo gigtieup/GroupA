@@ -886,11 +886,11 @@ function closeOptionModal() {
    <form action="javascript:create_fact()" class = "createForm">
        <p><label class = "form-label">
            stock:
-           <input class = "input-boxes" type="text" industry="stock" id="stock" required>
+           <input class = "input-boxes" type="text" fact="stock" id="stock" required>
        </label></p>
        <p><label class = "form-label">
            stock fact:
-           <input class = "input-boxes" type="text" industry="industry" id="industry" required>
+           <input class = "input-boxes" type="text" fact="fact" id="fact" required>
        </label></p>
        <p>
            <button class = "form-button">Create</button>
@@ -978,7 +978,7 @@ function closeOptionModal() {
    function add_row(data) {
      const tr = document.createElement("tr");
      const stock = document.createElement("td");
-     const industry = document.createElement("td");
+     const fact = document.createElement("td");
     
      const id = document.createElement("td");
     
@@ -986,7 +986,7 @@ function closeOptionModal() {
   
      // obtain data that is specific to the API
      stock.innerHTML = data.stock;
-     industry.innerHTML = data.industry;
+     fact.innerHTML = data.fact;
       
      id.innerHTML = data.id;
     
@@ -994,7 +994,7 @@ function closeOptionModal() {
   
      // add HTML to container
      tr.appendChild(stock);
-     tr.appendChild(industry);
+     tr.appendChild(fact);
     
      tr.appendChild(id);
     
@@ -1011,7 +1011,7 @@ function closeOptionModal() {
      //verifyPassword("click");
      const body = {
          stock: document.getElementById("stock").value,
-         industry: document.getElementById("industry").value,
+         fact: document.getElementById("fact").value,
      };
      const requestOptions = {
          method: 'POST',
@@ -1048,7 +1048,7 @@ function closeOptionModal() {
    //verifyPassword("click");
    const body = {
        stock: document.getElementById("stock").value,
-       industry: document.getElementById("industry").value,
+       fact: document.getElementById("fact").value,
    };
    const requestOptions = {
        method: 'DELETE',

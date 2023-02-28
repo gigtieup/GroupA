@@ -17,25 +17,25 @@ class Facts(db.Model):
    # Define the User schema with "vars" from object
    id = db.Column(db.Integer, primary_key=True)
    stock = db.Column(db.String(255), unique=True, nullable=False)
-   _industry = db.Column(db.String(255), unique=False, nullable=False)
+   fact = db.Column(db.String(255), unique=False, nullable=False)
   
    # Defines a relationship between User record and Notes table, one-to-many (one user to many notes)
    # constructor of a User object, initializes the instance variables within object (self)
    def __init__(self, stock, industry):
 
 
-       self._industry = industry   # variables with self prefix become part of the object,
+       self.fact = industry   # variables with self prefix become part of the object,
        self.stock = stock
 
 
    @property
    def industry(self):
-       return self._industry
+       return self.fact
   
    # a setter function, allows industry to be updated after initial object creation
    @industry.setter
    def industry(self, industry):
-       self._industry = industry
+       self.fact = industry
 
 
   

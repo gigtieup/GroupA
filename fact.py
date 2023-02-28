@@ -21,10 +21,10 @@ class FactsAPI:
            body = request.get_json()
           
            ''' Avoid garbage in, error checking '''
-           # validate industry
-           industry = body.get('industry')
-           if industry is None or len(industry) < 2:
-               return {'message': f'industry is missing, or is less than 2 characters'}, 210
+           # validate fact
+           fact = body.get('fact')
+           if fact is None or len(fact) < 2:
+               return {'message': f'fact is missing, or is less than 2 characters'}, 210
            # validate uid
            stock = body.get('stock')
            if stock is None or len(stock) < 2:
@@ -33,7 +33,7 @@ class FactsAPI:
 
 
            ''' #1: Key code block, setup USER OBJECT '''
-           uo = Facts(industry=industry,
+           uo = Facts(fact=fact,
                      stock=stock)
           
            ''' Additional garbage error checking '''
@@ -45,7 +45,7 @@ class FactsAPI:
            if fact:
                return jsonify(fact.read())
            # failure returns error
-           return {'message': f'Processed {industry}, either a format error or User ID is duplicate'}, 210
+           return {'message': f'Processed {fact}, either a format error or User ID is duplicate'}, 210
 
 
    class _Read(Resource):
