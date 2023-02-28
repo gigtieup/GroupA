@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, 
 import sqlite3
 import requests
 
@@ -13,19 +13,14 @@ def confirm():
     stocks = []
     total = 0
 
-    for stock_name in request.form.get('stock_name'):
-        shares = int(request.form[stock_name])
-        response = requests.get("https://api.twelvedata.com/time_series?apikey=957684ec12724d8f8e9aca66ee57e5e4&interval=1min")
-        share_price = int(share_price)
-        total_stock = share_price * shares
-        total += total_stock
-        stocks.append({
-            'name': stock_name,
-            'shares': shares,
-            'share_price': share_price,
-            'total_share': shares * share_price,
-            'total': total_stock
-            })
+    if request.method == 'POST':
+        conn = 
+
+        c = conn.cursor()
+        guest_vnaam = request.form.get('Voornaam')
+        guest_anaam = request.form.get('Achternaam')
+        guest_cnaam = request.form.get('Bedrijfsnaam')
+        guest_datum = request.form.get('Datum')
 
         conn = sqlite3.connect('GroupA/stock.db')
         c = conn.cursor()
