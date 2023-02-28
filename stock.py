@@ -1,6 +1,30 @@
+<<<<<<< HEAD
 from flask import Flask, render_template, request
 import sqlite3
 import requests
+=======
+from flask import Flask, render_template, request, app
+import sqlite3
+import requests
+
+
+def create_connection(db_file):
+    connection = None;
+    try:
+        conn = sqlite3.connect(db_file)
+        print(sqlite3.version)
+    except Error as e:
+        print(e)
+
+    return conn 
+
+# This is were I call the function for my db
+
+create_connection("gast.db")
+
+@app.route('/my_form', methods=['POST'])
+def my_form():
+>>>>>>> 8c008940a19ec07603334f433f9a670a71172e39
 
 app = Flask(__name__)
 
