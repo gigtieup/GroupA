@@ -39,4 +39,4 @@ def StockQuiz():
 
 @app_projects.route('/CreateAccount/')
 def CreateAccount():
-    return render_template("CreateAccount.html")
+    return render_template("Account.php")
