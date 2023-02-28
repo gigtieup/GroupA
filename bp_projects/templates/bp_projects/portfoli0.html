@@ -7,7 +7,7 @@
  <input type="text" id="stock">
  <button onclick="InsertStock()">Insert Stock</button>
  <div id="Stocks" style="margin-top: 200px">
-  
+  <div id="Stock-list"></div>  
  </div>
 </div>
 <script>
@@ -35,6 +35,11 @@ function getStockQuote(tickerSymbol, api) {
 }
 
 function displayStocks(){
+  document.getElementById("Stock-list").remove()
+  // This removes the HTML (deletes it) from the document
+  const stocksResult=document.createElement("div")
+  stocksResult.id="Stock-list"
+  // sets ID to stock list
   for (let i=0; i<ticker.length; i++){
   // i=0 is the first # it starts at, it ends at i<ticker.length.
   console.log(ticker[i])
@@ -54,18 +59,18 @@ function displayStocks(){
             priceElement.appendChild(priceNode)
 
 
-            stocksdiv.appendChild(nameElement)
-            stocksdiv.appendChild(priceElement)
+            stocksResult.appendChild(nameElement)
+            stocksResult.appendChild(priceElement)
             console.log(name, stockPrice);
         });
     });
   }
+  stocksdiv.appendChild(stocksResult)
 }
 function InsertStock(){
   ticker.push(document.getElementById("stock").value)
   displayStocks()
 }
-displayStocks()
 </script>
 </div>
 {% endblock %}
