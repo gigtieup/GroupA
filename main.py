@@ -9,14 +9,14 @@ app.register_blueprint(app_api) # register api routes
 app.register_blueprint(app_projects) # register api routes
 
 def register_user(username, password):
-    conn = sqlite3.connect('user.db')
+    conn = sqlite3.connect('GroupA/user.db')
     c = conn.cursor()
     c.execute('INSERT INTO users(username, password) values (?, ?)', (username, password))
     conn.commit()
     conn.close()
 
 def check_user(username, password):
-    conn = sqlite3.connect('user.db')
+    conn = sqlite3.connect('GroupA/user.db')
     c = conn.cursor()
     c.execute('Select username, password FROM users WHERE username=? and password=?', (username, password))
 
@@ -65,9 +65,9 @@ def login():
         if check_user(username, password):
             session['username']=username
 
-        return redirect('/home')
-    else:
-        return redirect('/')
+            return redirect('/home')
+        else:
+            return "Wrong Username or Password"
     
 @app.route('/home', methods=["POST","GET"])
 def home():
