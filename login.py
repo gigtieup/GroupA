@@ -1,14 +1,8 @@
 import sqlite3
 
-conn = sqlite3.connect('user.db')
+conn = sqlite3.connect("user.db")
 c = conn.cursor()
 
+command = """CREATE TABLE IF NOT EXISTS users(username TEXT, password TEXT)"""
 
-# c.execute("""CREATE TABLE account (
-#     username TEXT,
-#     password TEXT
-# )""")
-
-
-conn.commit()
-conn.close()
+c.execute(command)
